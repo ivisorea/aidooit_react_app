@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Search from '../Search/Search'
+import { Footer } from '../Footer'
 import aidooit_logo from './aidooit_logo.png'
 import './Layout.css'
 
@@ -22,13 +23,15 @@ const Layout = () => {
                     <a className="nav-link" href="/">Login</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/">Sign Up</a>
+                    <a className="nav-link" href="/">SignUp</a>
                 </li>
                 
             </ul>
         </nav>
         <Search/>
         <Outlet/>
+        <Footer/>
+        
         </>
     )
 }

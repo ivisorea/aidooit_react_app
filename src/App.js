@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import {Routes, Route, useParams} from 'react-router-dom';
 import axios from 'axios';
 import Layout from './components/Layout/Layout';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { NotFound } from './components/NotFound';
 
 
 import './App.css';
@@ -40,12 +42,12 @@ function App() {
           <Route index element={<Home categories={categories}/>} />
           <Route path='/category/' element={<PostList postsByCategory={postsByCategory}/>} />
           {/* <Route path='login' element={<Login />} />
-          <Route path='register' element={<Register />} />
+          <Route path='register' element={<Register />} /> */}
           <Route path='protected' element={<ProtectedRoute />}>
-            <Route index element={<UserProfile />} />
-            <Route path='create-post' element={<CreatePost />} />
+            {/* <Route index element={<UserProfile />} />
+            <Route path='create-post' element={<CreatePost />} /> */}
           </Route>
-          <Route path='*' element={<NotFound />} /> */}
+          <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
       
