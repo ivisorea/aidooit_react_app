@@ -1,32 +1,29 @@
 import React, { useState } from 'react'
+import'./Search.css'
 
 
 const Search = () => {
     const [search, setSearch] = useState('')
     return (
         <>
-        <form className="form-inline">
-            <input 
-                className="form-control mr-sm-2"   
-                type="search" 
-                placeholder="Search" 
-                aria-label="Search"
-                />
-            
-        </form>
-
-        <div className="input-group">
-            <input 
-                className="form-control border-end-0 border rounded-pill" 
-                type="text" 
-                onChange={(e) => setSearch(e.target.value)}
-                id="example-search-input"/>
-            <span className="input-group-append">
-                <button className="btn btn-outline-secondary bg-white border-start-0 border rounded-pill ms-n3" type="button">
-                    <i className="fa fa-search"></i>
-                </button>
-            </span>
-     </div>
+       
+        
+          <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
+                <div class="input-group input-group-lg">
+                    <input 
+                        className="form-control border rounded-pill" 
+                        type="search" 
+                        placeholder="Search"
+                        onChange={(e) => setSearch(e.target.value)}
+                        id="example-search-input"/>
+                    <button 
+                        className="btn ms-n5 btn-outline-primary border-0" 
+                        type="button">
+                            <i class="fas fa-search "></i>
+                    </button>
+                </div>
+        </div>
+      
 
         </>
     )
