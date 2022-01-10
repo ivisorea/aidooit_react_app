@@ -1,4 +1,5 @@
-const CreatePost = () => {
+
+export const CreatePost = () => {
     return (
      <div>
          create post
@@ -6,4 +7,3 @@ const CreatePost = () => {
     );
 };
 
-export default CreatePost;
