@@ -1,17 +1,12 @@
- //import { useState } from 'react';
- //import React from 'react';
- import "./Login.css";
-
  import React, { useState, useEffect } from "react";
- //import * as ReactBootStrap from "react-bootstrap";
+ import * as ReactBootStrap from "react-bootstrap";
  import { Redirect } from "react-router-dom";
  import Layout from "./Layout"
+
+ import "./Login.css";
  
- 
-   
- 
-     
-        function Login() {
+  
+export const Login = () =>{
          const [username, setUsername] = useState("");
          const [loginMsg, setLoginMsg] = useState("");
          const [email, setEmail] = useState("");
@@ -82,7 +77,7 @@
                 </form>
                 <br/>
                 <form className="login-button">
-                 <button onClick={Login} className="btn btn-primary"   >Log In</button>
+                 <button onClick={Login} className="btn btn-primary"  >Log In</button>
                  </form>
                  <div className="login-text"><h5>Need an account? Sign Up</h5></div>
                </>
@@ -100,7 +95,7 @@
            
      };   
         
- export default Login;
+ 
       
        
  

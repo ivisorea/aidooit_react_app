@@ -4,6 +4,8 @@ import axios from 'axios';
 import Layout from './components/Layout/Layout';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { NotFound } from './components/NotFound';
+import { Login } from './components/Login';
+import { Register } from './components/Register';
 
 
 import './App.css';
@@ -41,8 +43,8 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route index element={<Home categories={categories}/>} />
           <Route path='/category/' element={<PostList postsByCategory={postsByCategory}/>} />
-          {/* <Route path='login' element={<Login />} />
-          <Route path='register' element={<Register />} /> */}
+          <Route path='login' element={<Login />} />
+          <Route path='register' element={<Register />} />
           <Route path='protected' element={<ProtectedRoute />}>
             {/* <Route index element={<UserProfile />} />
             <Route path='create-post' element={<CreatePost />} /> */}
