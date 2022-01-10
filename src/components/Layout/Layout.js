@@ -5,9 +5,11 @@ import { Footer } from '../Footer'
 import aidooit_logo from './aidooit_logo.png'
 import './Layout.css'
 
+
 const Layout = () => {
     return (
         <>
+      
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <ul className="nav navbar-nav">
                 <li className="nav-item">
