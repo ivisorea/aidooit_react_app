@@ -5,6 +5,7 @@ import './Layout.css'
 const Layout = () => {
     return (
         <>
+      <Toolbar />
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <a className="navbar-brand" href="/">
                 <img 
