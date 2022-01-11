@@ -1,5 +1,5 @@
 // import React, { useState } from 'react'
-import { Icon } from './styles.js'
+// import { Icon } from './styles.js'
 
 
 
@@ -9,10 +9,10 @@ export const Search = () => {
         <>
        
         
-          <div class="col-md-8 col-lg-6 col-xl-5 mx-auto">
+          <div class="col-md-8 col-lg-6 col-xl-5 mx-auto p-4">
                 <div class="input-group input-group-lg">
                     <input 
-                        className="form-control border rounded-pill" 
+                        className="form-control border rounded-pill shadow-sm" 
                         type="search" 
                         placeholder="Search"
                         // onChange={(e) => setSearch(e.target.value)}

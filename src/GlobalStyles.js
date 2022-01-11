@@ -33,6 +33,7 @@ body {
     background: cover;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
 }
 #app {
     box-shadow: 0 0 10px rgba(0,0,0,0.05);

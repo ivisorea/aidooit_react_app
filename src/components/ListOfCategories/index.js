@@ -3,6 +3,7 @@ import { Category } from '../Category'
 import { List, ListItem } from './styles'
 
 export const ListOfCategories = ({categories}) => {
+    
     return (
         <>
             <List>
