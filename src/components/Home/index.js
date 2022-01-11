@@ -1,19 +1,16 @@
 import React from 'react'
-import { CardCategory } from '../CardCategory'
+import { ListOfCategories } from '../ListOfCategories'
+
+import PostList from '../PostList'
 
 import './Home.css'
 
-const Home = ({categories}) => {
+const Home = ({categories, postsByCategory}) => {
     return (
         <main>
+            <ListOfCategories categories={categories}/>
+            <PostList postsByCategory={postsByCategory}/>
             
-            {categories.map(category => (
-                <CardCategory 
-                    key={category.id} 
-                    category={category}
-                   
-                    />
-            ))}
         </main>
     )
 }

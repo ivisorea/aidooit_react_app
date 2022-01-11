@@ -1,12 +1,13 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Search from '../Search/Search'
 import { Footer } from '../Footer'
 import aidooit_logo from './aidooit_logo.png'
 import './Layout.css'
+import { Logo } from '../Logo'
+import { Search } from '../Search'
 
 
-const Layout = () => {
+export const Layout = () => {
     return (
         <>
       
@@ -14,6 +15,7 @@ const Layout = () => {
             <ul className="nav navbar-nav">
                 <li className="nav-item">
                     <a className="nav-link" href="/">
+                        {/* <Logo/> */}
                         <img 
                         src={aidooit_logo} 
                         width="150" 
@@ -38,4 +40,4 @@ const Layout = () => {
     )
 }
 
-export default Layout
+

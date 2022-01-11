@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import {Routes, Route, useParams} from 'react-router-dom';
 import axios from 'axios';
-import Layout from './components/Layout/Layout';
+import { GlobalStyles } from './GlobalStyles';
+import { Layout } from './components/Layout';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { NotFound } from './components/NotFound';
 import { Login } from './components/Login';
@@ -9,7 +10,7 @@ import { Register } from './components/Register';
 
 
 import './App.css';
-import PostList from './components/PostList/PostList';
+import PostList from './components/PostList';
 import Home from './components/Home';
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
 
   useEffect(() => {
     const getPostsByCategory = async () => {
-      const response = await axios.get(`https://aidooit-app.herokuapp.com/post/category/${idCategory}`);
+      const response = await axios.get(`https://aidooit-app.herokuapp.com/post`);
       console.log(response.data);
       setPostsByCategory(response.data);
     };
@@ -38,10 +39,10 @@ function App() {
 
   return (
     <>
-
+    <GlobalStyles/>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home categories={categories}/>} />
+          <Route index element={<Home categories={categories} postsByCategory={postsByCategory}/>} />
           <Route path='/category/' element={<PostList postsByCategory={postsByCategory}/>} />
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
