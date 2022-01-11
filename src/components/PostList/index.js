@@ -1,11 +1,11 @@
 import React from 'react'
 import { PostCard } from '../PostCard'
 
-const PostList = ({postsByCategory}) => {
+const PostList = ({posts}) => {
     return (
         <div>
            <ul>
-                {postsByCategory.map(post => (
+                {posts.map(post => (
                     <li key={post.id}>
                         <PostCard {...post} />
                     </li>

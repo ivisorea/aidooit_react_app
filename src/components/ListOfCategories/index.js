@@ -1,13 +1,18 @@
 import React from 'react'
 import { Category } from '../Category'
-import { List, ListItem } from './styles'
+import { StyledSpinner, List, ListItem } from './styles'
+import spinner from './Aidooit.png'
 
-export const ListOfCategories = ({categories}) => {
-    
+export const ListOfCategories = ({categories, isLoading}) => {
+
     return (
         <>
             <List>
-                {categories.map(category => 
+                {
+                    isLoading ?
+                    <StyledSpinner src={spinner} alt=""/>
+                    :
+                    categories.map(category => 
                 <ListItem key={category.id}>
                         <Category {...category}
                             />

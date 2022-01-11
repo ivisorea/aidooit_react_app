@@ -20,3 +20,4 @@ export const Button = styled.button`
 export const TextBtn = styled.p`
     padding: 0 8px;
     `;
+

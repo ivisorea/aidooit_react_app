@@ -5,11 +5,11 @@ import PostList from '../PostList'
 
 import './Home.css'
 
-const Home = ({categories, postsByCategory}) => {
+const Home = ({categories, posts, isLoading, loading}) => {
     return (
         <main>
-            <ListOfCategories categories={categories}/>
-            <PostList postsByCategory={postsByCategory}/>
+            <ListOfCategories categories={categories} isLoading={isLoading}/>
+            <PostList posts={posts}/>
             
         </main>
     )
