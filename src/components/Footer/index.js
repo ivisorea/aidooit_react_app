@@ -1,14 +1,52 @@
 import React from 'react'
+import { FooterCont, IconLink, SocialMediaIcon } from './styles'
 
 export const Footer = () => {
     return (
-        <div>
-            <footer className="footer">
-                <div className="container">
-                    <span className="text-muted">Place sticky footer content here.</span>
-                </div>
-            </footer>
-        </div>
+        <FooterCont >
+            <nav>
+                <ul>
+                    <li>
+                        <IconLink href="
+                        ">
+                            About
+                        </IconLink>
+                    </li>
+                    <li>
+                        <IconLink href="
+                        ">
+                            Contact
+                        </IconLink>
+                    </li>
+                    <li>
+                        <IconLink href="
+                        ">
+                            Terms
+                        </IconLink>
+                    </li>
+                    <li>
+                        <IconLink href="
+                        ">
+                            Privacy
+                        </IconLink>
+                    </li>   
+                </ul>
+            </nav>
+            <SocialMediaIcon>
+                <IconLink href="   ">
+                    <i className="fab fa-facebook-f"></i>
+                </IconLink>
+                <IconLink href="   ">
+                    <i className="fab fa-twitter"></i>
+                </IconLink>
+                <IconLink href="   ">
+                    <i className="fab fa-instagram"></i>
+                </IconLink>
+                <IconLink href="   ">
+                    <i className="fab fa-youtube"></i>
+                </IconLink>
+            </SocialMediaIcon>
+        </FooterCont>
     )
 }
 

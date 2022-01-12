@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import {Routes, Route, useParams} from 'react-router-dom';
+import {Routes, Route } from 'react-router-dom';
 import axios from 'axios';
-import Layout from './components/Layout/Layout';
+import { GlobalStyles } from './GlobalStyles';
+import { Layout } from './components/Layout';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { NotFound } from './components/NotFound';
 import { Login } from './components/Login';
@@ -9,45 +10,77 @@ import { Register } from './components/Register';
 
 
 import './App.css';
-import PostList from './components/PostList/PostList';
 import Home from './components/Home';
+import { UserProfile } from './components/UserProfile';
+import { CreatePost } from './components/CreatePost';
+import { HomeListPostByCateg } from './components/HomeListPostByCateg';
+import { Post } from './components/Post';
 
-function App() {
-  const { idCategory} = useParams();
+//Custom Hook to get Category Data
+function useCategoryData() {
   const [categories, setCategories] = useState([]);
-  const [postsByCategory, setPostsByCategory] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const getCategories = async () => {
       const response = await axios.get('https://aidooit-app.herokuapp.com/categories');
       setCategories(response.data);
       console.log(response.data);
+      setIsLoading(false);
     };
     getCategories();
   }, []);
+    return {categories, isLoading};
+}
+
+//Custom Hook to get Post Data
+function usePostData() {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const getPostsByCategory = async () => {
-      const response = await axios.get(`https://aidooit-app.herokuapp.com/post/category/${idCategory}`);
-      console.log(response.data);
-      setPostsByCategory(response.data);
+    const getPosts = async () => {
+      try {
+        const response = await axios.get('https://aidooit-app.herokuapp.com/posts');
+        setPosts(response.data);
+      }
+      catch (error) {
+        console.log(error);
+      }
     };
-    getPostsByCategory();
-  }, [idCategory]);
+    getPosts();
+  }, []);
+     
+  return { posts };
+}
 
 
+
+
+function App() {
+  
+
+  const { categories, isLoading} = useCategoryData();
+  const { posts } = usePostData();
+  
+ 
   return (
     <>
-
+    <GlobalStyles/>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home categories={categories}/>} />
-          <Route path='/category/' element={<PostList postsByCategory={postsByCategory}/>} />
+          <Route index element={<Home 
+                        categories={categories} 
+                        posts={posts}
+                        isLoading={isLoading}
+                        />} />
+          <Route path='/category/:CategoryId' element={<HomeListPostByCateg />} />
+          <Route path='/detail/:PostId' element={<Post />} />
           <Route path='login' element={<Login />} />
-          <Route path='register' element={<Register />} />
+          <Route path='singup' element={<Register />} />
           <Route path='protected' element={<ProtectedRoute />}>
-            {/* <Route index element={<UserProfile />} />
-            <Route path='create-post' element={<CreatePost />} /> */}
+            <Route index element={<UserProfile/>} />
+            <Route path='create-post' element={<CreatePost />} />
           </Route>
           <Route path='*' element={<NotFound />} />
         </Route>

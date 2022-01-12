@@ -1,20 +1,17 @@
 import React from 'react'
-import { CardCategory } from '../CardCategory'
+import { ListOfCategories } from '../ListOfCategories'
+import { Footer } from '../Footer'
+
+
 
 import './Home.css'
 
-const Home = ({categories}) => {
+const Home = ({categories, posts, postsByCategory, isLoading, loading}) => {
     return (
-        <main>
-            
-            {categories.map(category => (
-                <CardCategory 
-                    key={category.id} 
-                    category={category}
-                   
-                    />
-            ))}
-        </main>
+        <>
+            <ListOfCategories categories={categories} isLoading={isLoading}/>
+            <Footer/>
+        </>
     )
 }
 

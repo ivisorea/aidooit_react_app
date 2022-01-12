@@ -1,13 +1,11 @@
 import React from 'react'
 
-export const Register = () => {
+export const UserProfile = () => {
     return (
         <div>
-            SingUp
+            User Profile
         </div>
     )
 }
-
-
 
 
