@@ -42,9 +42,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home categories={categories}/>} />
-          <Route path='/category/' element={<PostList postsByCategory={postsByCategory}/>} />
           <Route path='login' element={<Login />} />
           <Route path='register' element={<Register />} />
+          <Route path='category' element={<PostList postsByCategory={postsByCategory}/>} />
           <Route path='protected' element={<ProtectedRoute />}>
             {/* <Route index element={<UserProfile />} />
             <Route path='create-post' element={<CreatePost />} /> */}
@@ -57,6 +57,6 @@ function App() {
     </>
     
   );
-}
+};
 
 export default App;

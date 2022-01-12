@@ -1,7 +1,6 @@
  import React, { useState, useEffect } from "react";
  import * as ReactBootStrap from "react-bootstrap";
  import { Redirect } from "react-router-dom";
- import Layout from "./Layout"
 
  import "./Login.css";
  
@@ -56,7 +55,7 @@ export const Login = () =>{
  
      return (
  <>
-   <Layout/>
+ 
  
  
          <div className="login">
