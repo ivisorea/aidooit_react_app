@@ -1,14 +1,15 @@
 import React from 'react'
+import { FooterCont } from './styles'
 
 export const Footer = () => {
     return (
-        <div className="navbar-fixed-bottom">
+        <FooterCont >
             
-                <div className="container">
+                
                     <span className="text-muted">Place sticky footer content here.</span>
-                </div>
+                
             
-        </div>
+        </FooterCont>
     )
 }
 

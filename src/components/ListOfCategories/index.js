@@ -13,7 +13,7 @@ export const ListOfCategories = ({categories, isLoading}) => {
                     <StyledSpinner src={spinner} alt=""/>
                     :
                     categories.map((category) => 
-                <ListItem key={category.id}>
+                <ListItem key={category._id}>
                         <Category {...category}
                             />
                 </ListItem>

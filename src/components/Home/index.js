@@ -1,5 +1,4 @@
 import React from 'react'
-import { HomeListPostByCateg } from '../HomeListPostByCateg'
 import { ListOfCategories } from '../ListOfCategories'
 
 // import PostList from '../PostList'
@@ -11,7 +10,7 @@ const Home = ({categories, posts, postsByCategory, isLoading, loading}) => {
         <main>
             <ListOfCategories categories={categories} isLoading={isLoading}/>
             {/* <PostList posts={posts}/> */}
-            <HomeListPostByCateg postsByCategory={postsByCategory} loading={loading}/>
+            
             
         </main>
     )
