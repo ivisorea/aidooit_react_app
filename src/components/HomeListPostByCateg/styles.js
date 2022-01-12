@@ -1,18 +1,13 @@
 import styled from "styled-components";
 
 export const List = styled.ul`
-    align-items: center;
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    width: 100%;
-    
+${'' /* overflow: scroll; */}
+width: 100%;
 `;
 
 export const ListItem = styled.li`
-    padding: 0.5rem;
-    flex-grow: 1;
-    height: 40vh;
+padding: 0.5rem;
 `;
 
 export const StyledSpinner = styled.img`

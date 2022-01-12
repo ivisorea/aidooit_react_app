@@ -10,10 +10,10 @@ import { Register } from './components/Register';
 
 
 import './App.css';
-import PostList from './components/PostList';
 import Home from './components/Home';
 import { UserProfile } from './components/UserProfile';
 import { CreatePost } from './components/CreatePost';
+import { HomeListPostByCateg } from './components/HomeListPostByCateg';
 
 //Custom Hook to get Category Data
 function useCategoryData() {
@@ -33,28 +33,47 @@ function useCategoryData() {
     return {categories, isLoading};
 }
 
-//Custom Hook to get Post Data By Category
+//Custom Hook to get Post Data
 function usePostData() {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     const getPosts = async () => {
       const response = await axios.get(`https://aidooit-app.herokuapp.com/post`);
       console.log(response.data);
       setPosts(response.data);
-      setLoading(false);
     };
     getPosts();
   }, []);
 
-  return {posts, loading};
+  return { posts };
 }
 
+//Custom Hook to Get Post Data By Category
+function usePostDataByCategory(category) {
+  const [postsByCategory, setPostsByCategory] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    
+    const getPostsByCategory = async () => {
+      const response = await axios.get(`https://aidooit-app.herokuapp.com/post/category/${this.props.match.params.id}`);
+      console.log(response.data);
+      setPostsByCategory(response.data);
+      setLoading(false);
+    };
+    getPostsByCategory();
+  }, []);
+
+  return {postsByCategory, loading};
+}
+
+
 function App() {
-  const {categories, isLoading} = useCategoryData();
-  const {posts, loading} = usePostData();
+  const { categories, isLoading} = useCategoryData();
+  const { posts } = usePostData();
+  const { postsByCategory, loading} = usePostDataByCategory();
 
   return (
     <>
@@ -66,10 +85,14 @@ function App() {
                         posts={posts}
                         isLoading={isLoading}
                         loading={loading}
+                        postsByCategory={postsByCategory}
                         />} />
-          <Route path='/category/' element={<PostList posts={posts}/>} />
+          <Route path='/category/:id' element={<HomeListPostByCateg 
+                        postsByCategory={postsByCategory}
+                        loading={loading}
+                        />} />
           <Route path='login' element={<Login />} />
-          <Route path='register' element={<Register />} />
+          <Route path='singup' element={<Register />} />
           <Route path='protected' element={<ProtectedRoute />}>
             <Route index element={<UserProfile/>} />
             <Route path='create-post' element={<CreatePost />} />

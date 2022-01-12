@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import aidooit_logo from './aidooit_logo.png'
 // import { Logo } from '../Logo'
 import { Button, TextBtn } from './styles'
@@ -19,16 +20,16 @@ export const Toolbar = () => {
                     alt="Aidooit_logo"/>
                 </a>
                 <div className=" d-flex justify-content-end">
-                    <div >
+                    <Link to={`/login`} >
                         <Button className='btn '>
                             <TextBtn>Login</TextBtn> 
                         </Button>
-                    </div>
-                    <div>
+                    </Link>
+                    <Link to={`/singup`}>
                         <Button className='btn'>
                             SignUp
                         </Button>
-                    </div>
+                    </Link>
                     
                 </div>
             </nav>
