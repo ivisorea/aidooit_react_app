@@ -21,13 +21,13 @@ export const Toolbar = () => {
                 </a>
                 <div className=" d-flex justify-content-end">
                     <Link to={`/login`} >
-                        <Button className='btn '>
+                        <Button className='btn'>
                             <TextBtn>Login</TextBtn> 
                         </Button>
                     </Link>
                     <Link to={`/singup`}>
                         <Button className='btn'>
-                            SignUp
+                        <TextBtn>SignUp</TextBtn>
                         </Button>
                     </Link>
                     

@@ -10,6 +10,7 @@ export const Button = styled.button`
     font-weight: bold;
     margin: 0.1rem 1rem;
     cursor: pointer;
+    text-align: center
     transition: all 0.3s ease-in-out;
     &:hover {
         background: #684595;
@@ -19,5 +20,6 @@ export const Button = styled.button`
 
 export const TextBtn = styled.p`
     padding: 0 8px;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
     `;
 
