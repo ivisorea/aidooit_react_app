@@ -5,12 +5,11 @@ import { Layout } from './components/Layout';
 import { NotFound } from './components/NotFound';
 import { Login } from './components/Login';
 import { Register } from './components/Register';
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AuthState from "./context/AuthContext";
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import PostList from "./components/PostList/PostList";
 
 import './App.css';
 import Home from './components/Home';
@@ -60,9 +59,8 @@ function usePostData() {
 
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
   const { posts } = usePostData();
-  const { categories } = useCategoryData();
+  const { categories, isLoading} = useCategoryData();
 
 
   return (
@@ -80,7 +78,6 @@ function App() {
                           />
               <Route path='/category/:CategoryId' element={<HomeListPostByCateg />} />
               <Route path='/detail/:PostId' element={<Post />} />   
-              <Route path="category" element={<PostList />}/>
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
           <Route path="protected" element={<ProtectedRoute />}>
