@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import { PostCard } from '../PostCardUserProfile'
+import { PostCardUserProfile } from '../PostCardUserProfile'
 import { Spinner } from '../Spinner'
 
-const PostList = ({posts}) => {
+export const PostListUserProfile = ({posts}) => {
     const {authorId} = useParams()
     const [postsByAuthor, setPostsByAuthor] = useState([])
     const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const PostList = ({posts}) => {
                 <ul>
                     {postsByAuthor.map(post => (
                         <li key={post.id}>
-                            <PostCard {...post} />
+                            <PostCardUserProfile {...post} />
                         </li>
                     ))}
                 </ul>
@@ -42,4 +42,4 @@ const PostList = ({posts}) => {
     )
 }
 
-export default PostList
+
