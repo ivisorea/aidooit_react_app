@@ -19,6 +19,24 @@ import { CreatePost } from './components/CreatePost';
 import { HomeListPostByCateg } from './components/HomeListPostByCateg';
 import { Post } from './components/Post';
 
+//Custom Hook to get Category Data
+function useCategoryData() {
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    const getCategories = async () => {
+      const response = await axios.get('https://aidooit-app.herokuapp.com/categories');
+      setCategories(response.data);
+      console.log(response.data);
+      setIsLoading(false);
+    };
+    getCategories();
+  }, []);
+    return {categories, isLoading};
+}
+
 //Custom Hook to get Post Data
 function usePostData() {
   const [posts, setPosts] = useState([]);
@@ -39,25 +57,13 @@ function usePostData() {
   return { posts };
 }
 
+
+
 function App() {
-  const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const { posts } = usePostData();
+  const { categories } = useCategoryData();
 
-  useEffect(() => {
-    setIsLoading(true);
-    const getCategories = async () => {
-      const response = await axios.get(
-        "https://aidooit-app.herokuapp.com/categories"
-      );
-      setCategories(response.data);
-      console.log(response.data);
-      setIsLoading(false);
-    };
-    getCategories();
-  }, []);
-    
 
   return (
     <>
@@ -73,13 +79,13 @@ function App() {
                           />} 
                           />
               <Route path='/category/:CategoryId' element={<HomeListPostByCateg />} />
-              <Route path='/detail/:PostId' element={<Post />} />            
+              <Route path='/detail/:PostId' element={<Post />} />   
+              <Route path="category" element={<PostList />}/>
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
-              <Route path="category" element={<PostList />}/>
           <Route path="protected" element={<ProtectedRoute />}>
-              <Route path='create-post' element={<CreatePost />} />
               <Route index element={<UserProfile/>} />
+              <Route path='create-post' element={<CreatePost />} />
           </Route>
           <Route path="*" element={<NotFound />} />
           </Route>
