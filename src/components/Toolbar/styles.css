@@ -1,0 +1,23 @@
+
+
+.dropdown-toggle:after {
+    display: none !important; 
+  }
+
+.menu-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    background-color: #f4ba15; 
+    font-weight: bold;
+    padding-top: 2px;
+}
+.icon-container {
+    background: #f4ba15 ;
+    border-radius: 50%;
+    padding: 8px 12px;
+}
+
+.navbar-menu {
+    padding: 0px !important;
+    margin: 0px !important;
+}
