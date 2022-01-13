@@ -9,7 +9,7 @@ export const CreatePost = () => {
     const onSubmit = async data => {
         try {
           const { data: newPost } = await axios.post("http://localhost:4000/post", data, {
-            //headers: { Authorization: localStorage.getItem('token') }
+            headers: { Authorization: localStorage.getItem('token') }
           });
           console.log(newPost);
         } catch (error) {
@@ -19,6 +19,7 @@ export const CreatePost = () => {
 
     //Here I need register the form and in the input
     const { 
+        register,
         handleSubmit, 
         formState: { errors },
         control,
@@ -31,7 +32,7 @@ export const CreatePost = () => {
                 Title:
                 <input
                 className={errors.title ? 'form-control is-invalid' : 'form-control'}
-                //{...register('title', { required: true })}
+                {...register('title', { required: true })}
                 />
                 </label>
                 {errors.title && <div className='invalid-feedback'>Title is required</div>}
@@ -39,7 +40,7 @@ export const CreatePost = () => {
                 Image:
                 <input
                 className={errors.image ? 'form-control is-invalid' : 'form-control'}
-                //{...register('title', { required: true })}
+                {...register('image', { required: true })}
                 />
                 </label>
             </div>

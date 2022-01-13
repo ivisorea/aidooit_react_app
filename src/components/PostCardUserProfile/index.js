@@ -2,10 +2,10 @@ import React from 'react'
 import ShowMoreText from "react-show-more-text";
 import { Img, PostWrapper, DescWrapper, Title, Button, Card } from './styles';
 
-export const PostCardUserProfile = ({id, image, title, body, likes}) => {
+export const PostCardUserProfile = ({_id, image, title, body, likes}) => {
     return (
         <Card>
-            <a href={`/detail/${id}`}>
+            <a href={`/detail/${_id}`}>
                 <PostWrapper>
                     <Img src={image} alt=""/>
                     <DescWrapper>

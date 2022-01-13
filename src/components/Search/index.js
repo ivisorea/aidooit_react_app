@@ -7,7 +7,7 @@ export const Search = () => {
     // const [search, setSearch] = useState('')
     return (
         <>
-          <div class="col-md-8 col-lg-6 col-xl-5 mx-auto p-4 mt-5">
+          <div class="col-md-8 col-lg-6 col-xl-5 mx-auto p-5 mt-5">
                 <div class="input-group input-group-lg">
                     <input 
                         className="form-control border rounded-pill shadow-sm" 

@@ -3,9 +3,11 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { PostCardUserProfile } from '../PostCardUserProfile'
 import { Spinner } from '../Spinner'
+import { useAuth } from '../../context/AuthContext'
 
 export const PostListUserProfile = ({posts}) => {
-    const {authorId} = useParams()
+    const { user } = useAuth();
+    const { authorId } = useParams()
     const [postsByAuthor, setPostsByAuthor] = useState([])
     const [loading, setLoading] = useState(false);
 
@@ -13,7 +15,7 @@ export const PostListUserProfile = ({posts}) => {
         try {
             setLoading(true);
             const getPostsByAuthor = async () => {
-                const response = await axios.get(`https://aidooit-app.herokuapp.com/post/author/${authorId}`);
+                const response = await axios.get(`https://aidooit-app.herokuapp.com/post/author/${user._id}`);
                 setPostsByAuthor(response.data);
             };
             getPostsByAuthor();
@@ -22,7 +24,7 @@ export const PostListUserProfile = ({posts}) => {
         catch (error) {
             console.log(error);
         }
-    }, [authorId]);
+    }, [user._id]);
 
     return (
         <>
@@ -32,7 +34,7 @@ export const PostListUserProfile = ({posts}) => {
                 :
                 <ul>
                     {postsByAuthor.map(post => (
-                        <li key={post.id}>
+                        <li key={post._id}>
                             <PostCardUserProfile {...post} />
                         </li>
                     ))}

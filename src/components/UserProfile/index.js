@@ -1,10 +1,14 @@
 import React, { useState} from 'react'
 import './styles.css'
+import axios from 'axios'
 // import { UserPhoto, UserPhotoIcon, UserSummaryWrapper } from './styles'
 import {PostListUserProfile} from '../PostListUserProfile'
 import {Popup} from '../Popup'
+import { useAuth } from '../../context/AuthContext'
+import { CreatePost } from '../CreatePost'
 
 export const UserProfile = () => {
+    const { user } = useAuth();
     const [showPopup, setShowPopup] = useState(false);
     const [file, setFile] = useState(null);
 
@@ -14,8 +18,21 @@ export const UserProfile = () => {
     }
 
     const fileUploadHandler = (e) => {
-        
+        // const formData = new FormData();
+        // formData.append('file', file, file.name);
+        // try {
+        //     const {
+        //         data: { location }
+        //     } = axios.post('https://aidooit-app.herokuapp.com/images/s3', formData, {
+        //         headers: { Authorization: localStorage.getItem('token') },
+        //     });
+        //     console.log(location);
+        // }
+        // catch (error) {
+        //     console.log(error);
+        // }
     }
+
 
     return (
         <>
@@ -29,7 +46,7 @@ export const UserProfile = () => {
                     </button>
                 </div>
                 <div className='user-name-container'>
-                    <h1 className='user-name'>Christine Williams</h1>
+                    <h1 className='user-name'>{user.first_name} {user.last_name}</h1>
                 </div>
             </div>
             <Popup trigger={showPopup} setTrigger={setShowPopup}>
@@ -39,12 +56,13 @@ export const UserProfile = () => {
                     onChange={(e) => {fileSelectHandler(e)}}
                 />
                 <button className = 'btn'
-                    onClick={() => fileUploadHandler()}
+                    onClick={(e) => fileUploadHandler()}
                 >
                     <i class="fas fa-upload"></i>
                 </button>
             </Popup>
             <PostListUserProfile/>
+            <CreatePost/>
         </>
 
     )
