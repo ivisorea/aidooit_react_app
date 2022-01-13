@@ -12,7 +12,6 @@ export const Layout = () => {
     return (
         <>
         <Toolbar/>
-        <Search/>
         <Outlet/>
         
         

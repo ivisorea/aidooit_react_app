@@ -1,14 +1,13 @@
 import React from 'react'
 import { ListOfCategories } from '../ListOfCategories'
 import { Footer } from '../Footer'
-
-
-
 import './Home.css'
+import { Search } from '../Search'
 
 const Home = ({categories, posts, postsByCategory, isLoading, loading}) => {
     return (
         <>
+            <Search/>
             <ListOfCategories categories={categories} isLoading={isLoading}/>
             <Footer/>
         </>

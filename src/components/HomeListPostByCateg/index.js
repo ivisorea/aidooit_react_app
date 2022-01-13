@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {  HomePostCard } from '../HomePostCard'
 import { List, ListItem } from './styles'
-
 import { useParams } from 'react-router-dom'
 import { Spinner } from '../Spinner'
+import { Search } from '../Search'
 
 export const HomeListPostByCateg = () => {
     const {CategoryId} = useParams();
@@ -30,7 +30,9 @@ export const HomeListPostByCateg = () => {
     
     return (
         <>
+            <Search/>
             <List>
+
                 {
                     loading ?
                     <Spinner/>

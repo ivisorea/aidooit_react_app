@@ -1,5 +1,5 @@
-// import React, { useState } from 'react'
-// import { Icon } from './styles.js'
+import React from 'react'
+
 
 
 
@@ -10,7 +10,7 @@ export const Search = () => {
           <div class="col-md-8 col-lg-6 col-xl-5 mx-auto p-4 mt-5">
                 <div class="input-group input-group-lg">
                     <input 
-                        className="form-control border rounded-pill shadow-sm" 
+                        className="form-control border rounded-pill shadow-sm px-0" 
                         type="search" 
                         placeholder="Search"
                         // onChange={(e) => setSearch(e.target.value)}
@@ -18,13 +18,15 @@ export const Search = () => {
                     <button 
                         className="btn ms-n5 btn-outline-primary border-0" 
                         type="button">
-                            <i class="fas fa-search " style={
+                            <i class="fas fa-search " 
+                            style={
                                 {
                                     color: '#f4ba15',
                                     fontSize: '1.5rem'
                                 }
                                                 
-                            }></i>
+                            }
+                            ></i>
                     </button>
                 </div>
         </div>
