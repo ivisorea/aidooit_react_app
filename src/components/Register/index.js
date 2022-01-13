@@ -1,8 +1,9 @@
-//import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 //import React from 'react';
 import "./Register.css";
-import { useForm } from "react-hook-form";
-import axios from "axios";
+import { useForm } from 'react-hook-form';
+import { useAuth } from '../../context/AuthContext';
+
 
 export const Register = () => {
   const {
@@ -11,18 +12,10 @@ export const Register = () => {
     watch,
     formState: { errors },
   } = useForm();
+const {isAuthenticated, signup} = useAuth ()
+ const onSubmit = (formData) => signup(formData);
+ if (isAuthenticated) return <Navigate to='/protected'/>;
 
-  const onSubmit = async (formData) => {
-    try {
-      const { data } = await axios.post(
-        "https://aidooit-app.herokuapp.com/user/singup",
-        formData
-      );
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <div className="login">
