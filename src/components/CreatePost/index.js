@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Controller, useForm } from "react-hook-form";
-import { Button } from "./styles";
+import { Button, EditorForm } from "./styles";
 import { TextEditor } from "../TextEditor";
 
 export const CreatePost = () => {
@@ -25,8 +25,7 @@ export const CreatePost = () => {
     } = useForm({title: '',image: '', body: ''});
 
    return (
-     <>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <EditorForm onSubmit={handleSubmit(onSubmit)}>
             <div>
                 <label htmlFor='title' className='form-label'>
                 Title:
@@ -54,8 +53,7 @@ export const CreatePost = () => {
                 />
             
             <Button className="btn" type='submit'>Create Post</Button>
-        </form>
-     </>
+        </EditorForm>
     );
 };
 

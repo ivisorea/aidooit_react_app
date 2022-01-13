@@ -1,0 +1,49 @@
+.user-summary-wrapper {
+    background: #684595;
+    display: flex;
+    position: relative;
+    padding: 120px 0 100px 0;
+}
+
+.user-name {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 1rem;
+    justify-content: flex-end;
+    position: absolute;
+    top: 65%;
+    right: 10%;
+}
+
+.user-name-container{
+    justify-content: flex-end;
+}
+.user-photo {
+    background: #684595;
+    border: 20px solid #f4ba15;
+    border-radius: 50%;
+    width: 12rem;
+    height: 12rem;
+    left: 10%;
+    position: absolute;
+}
+
+.user-photo-icon {
+    color: #f4b9155c;
+    font-size: 2rem;
+    position: absolute;
+    display: inline-block; 
+    text-align: center;
+    left: 3rem;
+    top: 3rem;
+}
+
+.icon-camera {
+    font-size: 3rem;
+    text-shadow: 0px 1px 1px rgba(2, 2, 2, 0.332);
+}
+
+.user-photo-icon:hover  {
+    color: #f4ba15;
+}

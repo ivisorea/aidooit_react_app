@@ -6,11 +6,8 @@ import { Button, TextBtn } from './styles'
 
 export const Toolbar = () => {
 
-    
     return (
-        
-   
-            <nav className="navbar navbar-light bg-light fixed-top">
+        <nav className="navbar navbar-light bg-light fixed-top">
                 <a className="nav-link" href="/">
                     {/* <Logo/> */}
                     <img 

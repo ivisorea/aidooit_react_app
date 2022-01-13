@@ -26,9 +26,8 @@ export const TextEditor = ({ onChange, value }) => {
             <Editor
                 apiKey='n1u2jypfpgavlk5j8lfm99swbhjbn9fhm1pl93c5p1s3ix2f'
                 // {...register('boby', { required: true })}
-                initialValue="<p>This is the initial content of the editor.</p>"
                 init={{
-                height: 300,
+                height: 500,
                 menubar: true,
                 plugins: [
                     'advlist autolink lists link image charmap print preview anchor',

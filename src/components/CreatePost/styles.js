@@ -8,7 +8,7 @@ export const Button = styled.button`
     padding: 0.5rem 1rem;
     font-size: 1rem;
     font-weight: bold;
-    margin: 0.1rem 1rem;
+    margin: 1rem 1rem;
     cursor: pointer;
     text-align: center
     transition: all 0.3s ease-in-out;
@@ -16,4 +16,13 @@ export const Button = styled.button`
         background: #684595;
         color: #f4ba15;
     }
+`;
+
+export const EditorForm = styled.form`
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 5rem;
 `;

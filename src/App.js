@@ -79,9 +79,11 @@ function App() {
           <Route path='login' element={<Login />} />
           <Route path='singup' element={<Register />} />
           <Route path='create-post' element={<CreatePost />} />
-          <Route path='protected' element={<ProtectedRoute />}>
+          <Route path='protected' 
+            // element={<ProtectedRoute />}
+            >
             <Route index element={<UserProfile/>} />
-            {/* <Route path='create-post' element={<CreatePost />} /> */}
+            <Route path='create-post' element={<CreatePost />} />
           </Route>
           <Route path='*' element={<NotFound />} />
         </Route>
