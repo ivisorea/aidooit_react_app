@@ -6,6 +6,16 @@ import {Popup} from '../Popup'
 
 export const UserProfile = () => {
     const [showPopup, setShowPopup] = useState(false);
+    const [file, setFile] = useState(null);
+
+    const fileSelectHandler = (e) => {
+        setFile(e.target.files[0]);
+        console.log(e.target.files[0]);
+    }
+
+    const fileUploadHandler = (e) => {
+        
+    }
 
     return (
         <>
@@ -23,7 +33,16 @@ export const UserProfile = () => {
                 </div>
             </div>
             <Popup trigger={showPopup} setTrigger={setShowPopup}>
-                <h3>Upload User Image</h3>
+                <h4>Upload User Image</h4>
+                <input type='file' 
+                    accept='image/*'
+                    onChange={(e) => {fileSelectHandler(e)}}
+                />
+                <button className = 'btn'
+                    onClick={() => fileUploadHandler()}
+                >
+                    <i class="fas fa-upload"></i>
+                </button>
             </Popup>
             <PostListUserProfile/>
         </>
