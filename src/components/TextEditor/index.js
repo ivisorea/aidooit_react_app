@@ -25,7 +25,6 @@ export const TextEditor = ({ onChange, value }) => {
         <>
             <Editor
                 apiKey='n1u2jypfpgavlk5j8lfm99swbhjbn9fhm1pl93c5p1s3ix2f'
-                // {...register('boby', { required: true })}
                 init={{
                 height: 500,
                 menubar: true,
@@ -42,7 +41,6 @@ export const TextEditor = ({ onChange, value }) => {
                 images_upload_handler
                 }}
                 onEditorChange={newValue => onChange(newValue)}
-                value={value}
             />
         </>
     )

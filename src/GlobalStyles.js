@@ -26,8 +26,10 @@ button {
     outline: 0; 
 }
 body {
+  
+
     background: rgb(104,69,149);
-    background: linear-gradient(0deg, rgba(104,69,149,1) 0%, rgba(255,255,255,1) 60%); 
+    background: linear-gradient(0deg, rgba(104,69,149,1) 10%, rgba(255,255,255,1) 80%); 
     overscroll-behavior: none;
     width: 100%;
     background: cover;
