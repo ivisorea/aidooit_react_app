@@ -37,7 +37,7 @@ export const Toolbar = () => {
                         <NavDropdown.Item href="protected/edit-post">Edit Post</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.4">Delete Post</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item onClick={signout}>Log Out</NavDropdown.Item>
+                        <NavDropdown.Item onClick={signout} as={Link} to="login">Log Out</NavDropdown.Item>
                     </NavDropdown>
                     </>
                 ) : (
