@@ -8,7 +8,7 @@ export const CreatePost = () => {
     
     const onSubmit = async data => {
         try {
-          const { data: newPost } = await axios.post("http://localhost:4000/post", data, {
+          const { data: newPost } = await axios.post("https://aidooit-app.herokuapp.com/post", data, {
             headers: { Authorization: localStorage.getItem('token') }
           });
           console.log(newPost);
