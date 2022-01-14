@@ -5,7 +5,6 @@ import { List, ListItem } from './styles'
 import { Search } from '../Search'
 import { useParams } from 'react-router-dom'
 import { Spinner } from '../Spinner'
-import { Search } from '../Search'
 
 export const HomeListPostByCateg = () => {
     const {CategoryId} = useParams();

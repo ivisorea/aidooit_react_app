@@ -3,7 +3,6 @@ import './styles.css'
 import {PostListUserProfile} from '../PostListUserProfile'
 import {Popup} from '../Popup'
 import { useAuth } from '../../context/AuthContext'
-import { CreatePost } from '../CreatePost'
 
 export const UserProfile = () => {
     const { user } = useAuth();
