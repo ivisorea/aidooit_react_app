@@ -17,6 +17,7 @@ import { UserProfile } from './components/UserProfile';
 import { CreatePost } from './components/CreatePost';
 import { HomeListPostByCateg } from './components/HomeListPostByCateg';
 import { Post } from './components/Post';
+import { Spinner } from 'react-bootstrap';
 
 //Custom Hook to get Category Data
 function useCategoryData() {
@@ -83,7 +84,7 @@ function App() {
           <Route path="protected" element={<ProtectedRoute />}>
               <Route index element={<UserProfile/>} />
               <Route path='create-post' element={<CreatePost />} />
-              <Route path='edit-post/:PostId' element={<CreatePost />} />
+              <Route path='edit-post/' element={<Spinner />} />
               
 
           </Route>

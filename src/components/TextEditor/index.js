@@ -9,7 +9,7 @@ export const TextEditor = ({ onChange, value }) => {
         try {
           const {
             data: { location }
-          } = await axios.post('https://aidooit-app.herokuapp.com/images/s3', formData, {
+          } = await axios.post('http://localhost:4000/images/s3', formData, {
             headers: { Authorization: localStorage.getItem('token') },
             onUploadProgress: ({ loaded, total }) => progress((loaded / total) * 100)
           });

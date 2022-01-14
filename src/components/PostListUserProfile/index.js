@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { PostCardUserProfile } from '../PostCardUserProfile'
 import { Spinner } from '../Spinner'
@@ -7,7 +6,6 @@ import { useAuth } from '../../context/AuthContext'
 
 export const PostListUserProfile = ({posts}) => {
     const { user } = useAuth();
-    const { authorId } = useParams()
     const [postsByAuthor, setPostsByAuthor] = useState([])
     const [loading, setLoading] = useState(false);
 

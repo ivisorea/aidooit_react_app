@@ -21,13 +21,16 @@ export const CreatePost = () => {
     const { 
         register,
         handleSubmit, 
+        setValue,
         formState: { errors },
         control,
     } = useForm({title: '',image: '', body: ''});
 
+
+    setValue('image', 'TEST')
    return (
         <EditorForm onSubmit={handleSubmit(onSubmit)}>
-            <div>
+            <>
                 <label htmlFor='title' className='form-label'>
                 Title:
                 <input
@@ -36,14 +39,15 @@ export const CreatePost = () => {
                 />
                 </label>
                 {errors.title && <div className='invalid-feedback'>Title is required</div>}
+                <input type='file'/>
                 <label htmlFor='image' className='form-label'>
                 Image:
-                <input
+                <input 
                 className={errors.image ? 'form-control is-invalid' : 'form-control'}
                 {...register('image', { required: true })}
                 />
                 </label>
-            </div>
+            </>
             <Controller 
                 control={control}
                 name='body'

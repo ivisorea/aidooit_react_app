@@ -1,7 +1,5 @@
 import React, { useState} from 'react'
 import './styles.css'
-import axios from 'axios'
-// import { UserPhoto, UserPhotoIcon, UserSummaryWrapper } from './styles'
 import {PostListUserProfile} from '../PostListUserProfile'
 import {Popup} from '../Popup'
 import { useAuth } from '../../context/AuthContext'
@@ -10,10 +8,10 @@ import { CreatePost } from '../CreatePost'
 export const UserProfile = () => {
     const { user } = useAuth();
     const [showPopup, setShowPopup] = useState(false);
-    const [file, setFile] = useState(null);
+    const [image, setImage] = useState(null);
 
     const fileSelectHandler = (e) => {
-        setFile(e.target.files[0]);
+        setImage(e.target.files[0]);
         console.log(e.target.files[0]);
     }
 
@@ -51,12 +49,10 @@ export const UserProfile = () => {
             </div>
             <Popup trigger={showPopup} setTrigger={setShowPopup}>
                 <h4>Upload User Image</h4>
-                <input type='file' 
-                    accept='image/*'
-                    onChange={(e) => {fileSelectHandler(e)}}
-                />
+                <input type='file' />
+                
                 <button className = 'btn'
-                    onClick={(e) => fileUploadHandler()}
+                    onClick={() => fileUploadHandler()}
                 >
                     <i class="fas fa-upload"></i>
                 </button>

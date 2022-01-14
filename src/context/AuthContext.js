@@ -1,10 +1,6 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import axios from 'axios'
 import {toast} from 'react-toastify'
-import { set } from "react-hook-form";
-
-
-
 
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
@@ -13,7 +9,7 @@ export const useAuth = () => useContext(AuthContext);
 
 const AuthState = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [loading, setLoading] = useState(false);
 
@@ -96,8 +92,17 @@ const AuthState = ({ children }) => {
     }
   };
 
+  const signout  = () => {
+    setIsAuthenticated(false)
+    setUser(null)
+    setToken(null);
+    localStorage.removeItem('token')
+  }
+
+  
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, signup, signin, loading, user }}>
+    <AuthContext.Provider value={{ isAuthenticated, signup, signin, signout, loading, user }}>
       {children}
     </AuthContext.Provider>
   );
