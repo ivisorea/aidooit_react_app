@@ -31,7 +31,6 @@ export const UserProfile = () => {
         // }
     }
 
-
     return (
         <>
             <div className='user-summary-wrapper'>
@@ -58,7 +57,6 @@ export const UserProfile = () => {
                 </button>
             </Popup>
             <PostListUserProfile/>
-            <CreatePost/>
         </>
 
     )
