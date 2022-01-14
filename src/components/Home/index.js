@@ -4,10 +4,10 @@ import { Footer } from '../Footer'
 import './Home.css'
 import { Search } from '../Search'
 
-const Home = ({categories, posts, postsByCategory, isLoading, loading}) => {
+const Home = ({categories, posts, isLoading }) => {
     return (
         <>
-            <Search/>
+            <Search posts={posts}/>
             <ListOfCategories categories={categories} isLoading={isLoading}/>
             <Footer/>
         </>

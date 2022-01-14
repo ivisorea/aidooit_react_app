@@ -8,10 +8,10 @@ import './styles.css'
 import { useAuth } from '../../context/AuthContext'
 
 export const Toolbar = () => {
-    const { isAuthenticated, user, signout } = useAuth();
+    const { isAuthenticated, user , signout} = useAuth();
 
     return (
-        <nav className="navbar navbar-light bg-light fixed-top">
+        <nav className="navbar navbar-light bg-light fixed-top rounded-bottom">
                 <a className="nav-link" href="/">
                     {/* <Logo/> */}
                     <img 
@@ -33,11 +33,11 @@ export const Toolbar = () => {
                             }>
                         <NavDropdown.Item href="#action/3.1">Welcome {user.first_name}</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.2">Add Post</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Update Post</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="protected/create-post">Add Post</NavDropdown.Item>
+                        <NavDropdown.Item href="protected/edit-post">Edit Post</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.4">Delete Post</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.5">Log Out</NavDropdown.Item>
+                        <NavDropdown.Item onClick={signout}>Log Out</NavDropdown.Item>
                     </NavDropdown>
                     </>
                 ) : (

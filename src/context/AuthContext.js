@@ -2,9 +2,6 @@ import { useState, useEffect, createContext, useContext } from "react";
 import axios from 'axios'
 import {toast} from 'react-toastify'
 
-
-
-
 const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
@@ -12,12 +9,11 @@ export const useAuth = () => useContext(AuthContext);
 
 const AuthState = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [loading, setLoading] = useState(false);
 
   useEffect(()=>{
-    
     const autoSignIn = async () => {
       try {
         setLoading(true);
@@ -32,6 +28,8 @@ const AuthState = ({ children }) => {
         setIsAuthenticated(true);
         setLoading(false);
       } catch (error) {
+        toast.error(error.response?.data.error || error.message);
+        localStorage.removeItem('token');
         console.error(error);
         setLoading(false);
       }
@@ -43,14 +41,12 @@ const AuthState = ({ children }) => {
 
  //function for signup
   const signup = async (formData) => {
-    setLoading(true);
     try {
+      setLoading(true);
       const {
         data: { token },
       } = await axios.post(
-        "https://aidooit-app.herokuapp.com/user/singup",
-        formData
-      );
+        "https://aidooit-app.herokuapp.com/user/signup", formData);
       const {
         data,
       } = await axios.get(
@@ -58,8 +54,9 @@ const AuthState = ({ children }) => {
           headers: { Authorization: token }
         }
       );
-      setUser(data);
       localStorage.setItem("token", token);
+      setToken(token);
+      setUser(data);
       setIsAuthenticated(true);
       setLoading(false);
     } catch (error) {
@@ -76,7 +73,7 @@ const AuthState = ({ children }) => {
       const {
         data: { token },
       } = await axios.post(
-        "https://aidooit-app.herokuapp.com/user/singin",
+        "https://aidooit-app.herokuapp.com/user/signin",
         formData
       );
       const {
@@ -88,14 +85,24 @@ const AuthState = ({ children }) => {
       );
       setUser(data);
       localStorage.setItem("token", token);
+      setToken(token);
       setIsAuthenticated(true);
     } catch (error) {
       toast.error(error.response?.data.error||error.message );
     }
   };
 
+  const signout  = () => {
+    setIsAuthenticated(false)
+    setUser(null)
+    setToken(null);
+    localStorage.removeItem('token')
+  }
+
+  
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, signup, signin, loading, user }}>
+    <AuthContext.Provider value={{ isAuthenticated, signup, signin, signout, loading, user }}>
       {children}
     </AuthContext.Provider>
   );

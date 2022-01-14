@@ -83,6 +83,9 @@ function App() {
           <Route path="protected" element={<ProtectedRoute />}>
               <Route index element={<UserProfile/>} />
               <Route path='create-post' element={<CreatePost />} />
+              <Route path='edit-post/' element={<CreatePost />} />
+              
+
           </Route>
           <Route path="*" element={<NotFound />} />
           </Route>
