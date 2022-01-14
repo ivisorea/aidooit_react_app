@@ -47,7 +47,7 @@ export const Toolbar = () => {
                             <TextBtn>Login</TextBtn> 
                         </Button>
                     </Link>
-                    <Link to={`/singup`}>
+                    <Link to={`/register`}>
                         <Button className='btn'>
                         <TextBtn>SignUp</TextBtn>
                         </Button>

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-
-
 export const Search = ({posts}) => {
     const [postTitle, setPostTitle] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
@@ -17,7 +15,6 @@ export const Search = ({posts}) => {
         setPostTitle(postTitle);
     }
 
-        
     return (
         <>
           <div class="col-md-8 col-lg-6 col-xl-5 mx-auto p-5 mt-5">
