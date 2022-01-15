@@ -48,7 +48,7 @@ padding-right: 70px;
 color: rgb(245, 248, 248);
 }
 
-input[type=text], input[type=password]{
+input[type=text], input[type=password],  input[type=email]{
     border-radius:10px;
     border:none;
     -webkit-box-shadow:0px 1px 1px #cfcccf;
