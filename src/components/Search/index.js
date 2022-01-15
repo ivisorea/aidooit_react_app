@@ -1,12 +1,14 @@
 // import React, { useState } from 'react'
 // import { Icon } from './styles.js'
-
+import "./Search.css";
 
 
 export const Search = () => {
     // const [search, setSearch] = useState('')
     return (
         <>
+       
+        <form>
           <div class="col-md-8 col-lg-6 col-xl-5 mx-auto p-4 mt-5">
                 <div class="input-group input-group-lg">
                     <input 
@@ -15,6 +17,9 @@ export const Search = () => {
                         placeholder="Search"
                         // onChange={(e) => setSearch(e.target.value)}
                         id="example-search-input"/>
+
+
+     
                     <button 
                         className="btn ms-n5 btn-outline-primary border-0" 
                         type="button">
@@ -29,7 +34,8 @@ export const Search = () => {
                 </div>
         </div>
       
-
+        </form>
+       
         </>
     )
 }

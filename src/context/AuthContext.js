@@ -76,7 +76,7 @@ const AuthState = ({ children }) => {
       const {
         data: { token },
       } = await axios.post(
-        "https://aidooit-app.herokuapp.com/user/singin",
+        "https://aidooit-app.herokuapp.com/user/signin",
         formData
       );
       const {
