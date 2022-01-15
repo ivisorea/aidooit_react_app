@@ -1,26 +1,26 @@
 import { Editor } from "@tinymce/tinymce-react"
 import axios from "axios";
 
-export const TextEditor = ({ onChange, value }) => {
+export const TextEditor = ({ onChange }) => {
 
-    const images_upload_handler = async (blobInfo, success, failure, progress) => {
-        const formData = new FormData();
-        formData.append('file', blobInfo.blob(), blobInfo.filename());
-        try {
-          const {
-            data: { location }
-          } = await axios.post('https://aidooit-app.herokuapp.com/images/s3', formData, {
-            headers: { Authorization: localStorage.getItem('token') },
-            onUploadProgress: ({ loaded, total }) => progress((loaded / total) * 100)
-          });
-          console.log(location);
-          success(location);
-        } catch (error) {
-          console.log(error);
-          failure(error);
-        }
-      };
 
+  const images_upload_handler = async (blobInfo, success, failure, progress) => {
+    const formData = new FormData();
+    formData.append('file', blobInfo.blob(), blobInfo.filename());
+    try {
+      const {
+        data: { location }
+      } = await axios.post('https://aidooit-app.herokuapp.com/images/s3', formData, {
+        headers: { Authorization: localStorage.getItem('token') },
+        onUploadProgress: ({ loaded, total }) => progress((loaded / total) * 100)
+      });
+      console.log(location);
+      success(location);
+    } catch (error) {
+      console.log(error);
+      failure(error);
+    }
+  };
     return (
         <>
             <Editor
