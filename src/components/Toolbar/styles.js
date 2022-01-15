@@ -23,3 +23,7 @@ export const TextBtn = styled.p`
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
     `;
 
+export const MenuIcon = styled.i`
+    color: #f4ba15;
+    font-size: 1.5rem;
+    `;
