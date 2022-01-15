@@ -99,10 +99,27 @@ const AuthState = ({ children }) => {
     localStorage.removeItem('token')
   }
 
-  
+  const images_upload_handler = async (blobInfo, success, failure, progress) => {
+    const formData = new FormData();
+    formData.append('file', blobInfo.blob(), blobInfo.filename());
+    try {
+      const {
+        data: { location }
+      } = await axios.post('https://aidooit-app.herokuapp.com/images/s3', formData, {
+        headers: { Authorization: localStorage.getItem('token') },
+        onUploadProgress: ({ loaded, total }) => progress((loaded / total) * 100)
+      });
+      console.log(location);
+      success(location);
+    } catch (error) {
+      console.log(error);
+      failure(error);
+    }
+  };
+
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, signup, signin, signout, loading, user }}>
+    <AuthContext.Provider value={{images_upload_handler, isAuthenticated, signup, signin, signout, loading, user }}>
       {children}
     </AuthContext.Provider>
   );
