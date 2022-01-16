@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Spinner } from '../Spinner'
 import { Img } from '../PostCardUserProfile/styles'
-import { ContainerPost } from './style'
+import { ContainerPost, Title } from './style'
 import { Parser } from 'html-to-react'
+
 
 
 export const Post = () => {
@@ -35,8 +36,14 @@ export const Post = () => {
                 <Spinner/>
                 :
                 <ContainerPost>
-                    <h1>{post.title}</h1>
-                    <Img src={post.image} alt=""/>
+                    <div className='row'>
+                        <div className='col-md-4'>
+                            <Img src={post.image} alt="Post Image"/>
+                        </div>
+                        <div className='col-md-8 p-4'>
+                            <Title>{post.title}</Title>
+                        </div>
+                    </div>
                     
                     <div>
                     {Parser().parse(post.body)}
