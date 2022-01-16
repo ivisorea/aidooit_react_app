@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Spinner } from '../Spinner'
 import { Img } from '../PostCardUserProfile/styles'
 import { ContainerPost } from './style'
+import { Parser } from 'html-to-react'
 
 
 export const Post = () => {
@@ -36,8 +37,11 @@ export const Post = () => {
                 <ContainerPost>
                     <h1>{post.title}</h1>
                     <Img src={post.image} alt=""/>
-                    <p>{post.body}</p>
-                    <p>{post.date}</p>
+                    
+                    <div>
+                    {Parser().parse(post.body)}
+                    </div>
+                    {/* <p>{post.date}</p> */}
                 </ContainerPost>
             }
         </>
