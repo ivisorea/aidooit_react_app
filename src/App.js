@@ -43,7 +43,8 @@ function usePostData() {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await axios.get('https://aidooit-app.herokuapp.com/posts');
+        const response = await axios.get('https://aidooit-app.herokuapp.com/post');
+        console.log(response.data);
         setPosts(response.data);
       }
       catch (error) {

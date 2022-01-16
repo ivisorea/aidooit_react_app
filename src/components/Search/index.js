@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-export const Search = ({posts}) => {
+export const Search = ({posts, categories}) => {
     const [postTitle, setPostTitle] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
 
@@ -28,7 +28,7 @@ export const Search = ({posts}) => {
                         onChange={e => onChangeHandler(e.target.value)}
                         id="example-search-input"/>
                         {suggestions.length > 0 &&
-                            <ul class="form-control border rounded-pill shadow-sm">
+                            <ul class="border shadow-sm">
                                 {suggestions.map(suggestion => (
                                     <li key={suggestion._id}>
                                         <Link to={`/detail/${suggestion._id}`}>

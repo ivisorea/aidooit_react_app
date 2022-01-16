@@ -7,7 +7,7 @@ import { Search } from '../Search'
 const Home = ({categories, posts, isLoading }) => {
     return (
         <>
-            <Search posts={posts}/>
+        <Search posts={posts} categories={categories}/>
             <ListOfCategories categories={categories} isLoading={isLoading}/>
             <Footer/>
         </>
