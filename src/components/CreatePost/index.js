@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { Controller, useForm } from "react-hook-form";
-import { Button, EditorForm, ImageContainer, Image, HiddenLabel, EditorContainer, FormContainer } from "./styles";
+import { Button, EditorForm, Image, HiddenLabel, FormContainer } from "./styles";
 import { TextEditor } from "../TextEditor";
 import './styles.css'
 
@@ -34,7 +34,7 @@ export const CreatePost = ({categories}) => {
           });
           console.log(newPost);
           //clear form
-          
+         reset();
         } catch (error) {
           console.log(error);
         }
@@ -46,8 +46,10 @@ export const CreatePost = ({categories}) => {
         setValue,
         formState: { errors },
         control,
-       
-    } = useForm({title: '',image: '', body: '', category: ''});
+        reset
+    } = useForm({defaultValues: { title: '',image: '', body: '', category: ''}});
+
+      
 
     setValue('image', imageLocation)
    return (

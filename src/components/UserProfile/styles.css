@@ -34,7 +34,7 @@
 }
 
 .user-photo-icon {
-    color: #f4b9155c;
+    color: #684595a5;
     font-size: 2rem;
     position: absolute;
     display: inline-block; 
@@ -49,5 +49,9 @@
 }
 
 .user-photo-icon:hover  {
-    color: #f4ba15;
+    color: #684595;
 }
+
+.image-upload >input {
+    display: none;
+  }
