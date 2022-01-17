@@ -2,7 +2,8 @@ import React from 'react'
 import { Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../context/AuthContext';
-import "./Login.css";
+import './Login.css'
+import { Button, TextBtn } from '../Toolbar/styles';
  
  export const Login = () => {
    const {
@@ -18,10 +19,10 @@ import "./Login.css";
  
  
    return (
-     <div className="login">
+     <div className="">
        <div className="login-box">
-         <div className="login-container">
-           <div className="col-8"></div>
+         <div className="">
+           <div className="col-8 "></div>
            <form onSubmit={handleSubmit(onSubmit)} className="input-field">
              
              <input
@@ -29,6 +30,7 @@ import "./Login.css";
                className={
                  errors.name ? "form-control is invalid" : "form-control"
                }
+               style={{ marginTop: '4rem' }}
                placeholder="Email"
                {...register("email", { required: true })}
              />
@@ -40,22 +42,26 @@ import "./Login.css";
                className={
                  errors.name ? "form-control is invalid" : "form-control"
                }
+               style={{ marginBottom: '4rem' }}
                placeholder="Password"
                {...register("password", { required: true })}
              />
              {errors.password && <div>Password is required</div>}
-             <br/>
+             
            
-             <button onClick={Login} className="login-button"  >Log In</button>
+             <Button onClick={Login} className="btn rounded-pill login-button"  >
+                <TextBtn>LOGIN</TextBtn>
+             </Button>
               
            </form>
  
            <div className="login-text">
-             <h5>Don't have an account? Sign Up</h5>
            </div>
 
          </div>
        </div>
+       <br/>
+       <h5>Don't have an account? Sign Up</h5>
      </div>
 
 
