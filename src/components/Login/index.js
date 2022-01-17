@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation} from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../context/AuthContext';
 import './Login.css'
@@ -12,10 +12,12 @@ import { Button, TextBtn } from '../Toolbar/styles';
      watch,
      formState: { errors },
    } = useForm();
- const {isAuthenticated, loading, signin} = useAuth ()
+  const location = useLocation ()
+  const from = location.state?.from?.pathname ||  '/protected';
+  const {isAuthenticated, loading, signin} = useAuth ()
   const onSubmit = (formData) => signin(formData);
   if (loading) return 'Loading...';
-  if (isAuthenticated) return <Navigate to='/protected'/>;
+  if (isAuthenticated) return <Navigate to={from} replace />;
  
  
    return (

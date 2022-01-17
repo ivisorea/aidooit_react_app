@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 //import React from 'react';
 import "./Register.css";
 import { useForm } from 'react-hook-form';
@@ -10,12 +10,13 @@ export const Register = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
+  const location = useLocation ()
+  const from = location.state?.from?.pathname ||  '/protected';
 const {isAuthenticated, signup} = useAuth ()
  const onSubmit = (formData) => signup(formData);
- if (isAuthenticated) return <Navigate to='/protected'/>;
+ if (isAuthenticated) return <Navigate to={from} replace />;
 
   return (
     <div className="login">

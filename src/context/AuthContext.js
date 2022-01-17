@@ -57,7 +57,7 @@ const AuthState = ({ children }) => {
       localStorage.setItem("token", token);
       setToken(token);
       setUser(data);
-      setIsAuthenticated(true);
+      //setIsAuthenticated(true);
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -86,7 +86,7 @@ const AuthState = ({ children }) => {
       setUser(data);
       localStorage.setItem("token", token);
       setToken(token);
-      setIsAuthenticated(true);
+      //setIsAuthenticated(true);
     } catch (error) {
       toast.error(error.response?.data.error||error.message );
     }
