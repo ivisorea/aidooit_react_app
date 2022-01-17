@@ -7,7 +7,6 @@ import { useAuth } from '../../context/AuthContext'
 
 export const UserProfile = () => {
     const { user } = useAuth();
-    const [showPopup, setShowPopup] = useState(false);
     const [image, setImage] = useState(null);
     const [location, setLocation] = useState(null);
 
@@ -28,7 +27,7 @@ export const UserProfile = () => {
           console.log(error);
         }
       }, [image]);
-      
+
 
     return (
         <>
@@ -36,7 +35,12 @@ export const UserProfile = () => {
                 <div className='user-photo'>
                     <div class="image-upload">
                         <label for="file-input">
+                        {
+                            location ?
+                            <img src={location} alt=""/>
+                            :
                             <i class="fas fa-camera icon-camera user-photo-icon"></i>
+                        }
                         </label>
 
                         <input id="file-input" type="file" 

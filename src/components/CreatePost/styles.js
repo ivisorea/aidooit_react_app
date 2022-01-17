@@ -6,7 +6,7 @@ export const FormContainer = styled.div`
     font-size: 1.2rem;
     font-weight: bold;
     background-color: #fff;
-    border-radius: 50px;
+    border-radius: 20px;
     `;
 
 

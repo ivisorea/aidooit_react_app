@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import aidooit_logo from './aidooit_logo.png'
 // import { Logo } from '../Logo'
@@ -6,11 +6,16 @@ import { Button, TextBtn } from './styles'
 import { NavDropdown } from 'react-bootstrap'
 import './styles.css'
 import { useAuth } from '../../context/AuthContext'
+import { Popup } from '../Popup'
 
 
 export const Toolbar = () => {
     const { isAuthenticated, user , signout} = useAuth();
+    const [showPopup, setShowPopup] = useState(false);
 
+    const editProfileHandler = () => {
+       
+    };
     return (
         <nav className="navbar navbar-light bg-light fixed-top rounded-bottom">
                 <a className="nav-link" href="/">
@@ -38,8 +43,12 @@ export const Toolbar = () => {
                         <NavDropdown.Item href="protected/edit-post">Edit Post</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.4">Delete Post</NavDropdown.Item>
                         <NavDropdown.Divider />
+                        <NavDropdown.Item onClick={() => setShowPopup(!showPopup)}>Settings</NavDropdown.Item>
+                        <NavDropdown.Divider />
                         <NavDropdown.Item onClick={signout} as={Link} to="login">Log Out</NavDropdown.Item>
                     </NavDropdown>
+                    
+                    
                     </>
                 ) : (
                     <>
@@ -54,9 +63,24 @@ export const Toolbar = () => {
                         <TextBtn>SignUp</TextBtn>
                         </Button>
                     </Link>
+                    
+                        <Button className='btn' onClick={() => setShowPopup(!showPopup)}>
+                        <TextBtn>popup</TextBtn>
+                        </Button>
+                   
                     </> 
+
                 )}  
                 </div>
+                <Popup trigger={showPopup} setTrigger={setShowPopup}>
+                        <h4>Settings Profile</h4>
+                        <input type='text' />
+                        <button className = 'btn'
+                            onClick={() => editProfileHandler()}
+                        >
+                            Save Changes
+                        </button>
+                </Popup>
             </nav>
        
     )

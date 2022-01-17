@@ -61,7 +61,7 @@ export const CreatePost = ({categories}) => {
                 <label htmlFor='title' className='form-label'>
                       Title:
                       <input
-                      className={errors.title ? 'form-control is-invalid' : 'form-control'}
+                      className={errors.title ? 'form-control is-invalid' : 'form-control border'}
                       {...register('title', { required: true })}
                       />
                 </label>
@@ -95,7 +95,7 @@ export const CreatePost = ({categories}) => {
                   <label>
                       
                     <select 
-                      className={errors.category ? 'form-control is-invalid' : 'form-control border border-0 border-bottom'}
+                      className={errors.category ? 'form-control is-invalid' : 'form-control border '}
                       {...register('category', { required: true })}
                     > 
                       <option value=''>Select Category</option>
@@ -117,8 +117,17 @@ export const CreatePost = ({categories}) => {
                       <TextEditor onChange={onChange}/>
                       }
                   />
-              </div>
+                  <div>
+                  <input type='text'/>
+                  <br/>
+                  <input type='text'/>
+                  <br/>
+                  <input type='text'/>
             </div>
+              </div>
+            
+            </div>
+            
             <br/>
             <Button className="btn rounded-pill" type='submit'>Create Post</Button>
             
@@ -129,6 +138,7 @@ export const CreatePost = ({categories}) => {
                   {...register('image', { required: true })}
                   />
                 </HiddenLabel>
+                
           </FormContainer>
         </EditorForm>
      

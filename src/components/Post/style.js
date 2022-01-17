@@ -11,7 +11,7 @@ export const ContainerPost = styled.div`
     padding: 1rem;
     font-size: 1.2rem;
     background-color: #fff;
-    border-radius: 50px;
+    border-radius: 20px;
     border-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
