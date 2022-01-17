@@ -7,6 +7,7 @@ import { NavDropdown } from 'react-bootstrap'
 import './styles.css'
 import { useAuth } from '../../context/AuthContext'
 
+
 export const Toolbar = () => {
     const { isAuthenticated, user , signout} = useAuth();
 
@@ -20,7 +21,7 @@ export const Toolbar = () => {
                     className="d-inline-block align-top" 
                     alt="Aidooit_logo"/>
                 </a>
-            
+
                 <div className=" d-flex justify-content-end">
                 {isAuthenticated ? (
                     <>
@@ -44,8 +45,9 @@ export const Toolbar = () => {
                     <>
                     <Link to={`/login`} >
                         <Button className='btn'>
-                            <TextBtn>Login</TextBtn> 
+                       <TextBtn>Login</TextBtn>
                         </Button>
+                        
                     </Link>
                     <Link to={`/register`}>
                         <Button className='btn'>
@@ -54,7 +56,6 @@ export const Toolbar = () => {
                     </Link>
                     </> 
                 )}  
-                    
                 </div>
             </nav>
        

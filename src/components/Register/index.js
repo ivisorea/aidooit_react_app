@@ -63,9 +63,9 @@ const {isAuthenticated, signup} = useAuth ()
               {...register("password", { required: true })}
             />
             {errors.password && <div>Password is required</div>}
-            <button type="submit" className="btn btn-primary">
-              Sign Up
-            </button>
+            <br/>
+           
+           <button onClick={Register} className="login-button"  >Sign Up</button>
           </form>
 
           <div className="login-text">

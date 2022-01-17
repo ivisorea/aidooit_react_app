@@ -44,17 +44,24 @@ import "./Login.css";
                {...register("password", { required: true })}
              />
              {errors.password && <div>Password is required</div>}
-             <button type="submit" className="btn btn-primary">
-               Log In
-             </button>
+             <br/>
+           
+             <button onClick={Login} className="login-button"  >Log In</button>
+              
            </form>
  
            <div className="login-text">
              <h5>Don't have an account? Sign Up</h5>
            </div>
+
          </div>
        </div>
      </div>
+
+
+
+
+
    );
  };
  

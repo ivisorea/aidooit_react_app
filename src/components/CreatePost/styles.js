@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+export const FormContainer = styled.div`
+    margin: 2rem auto;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #fff;
+    border-radius: 50px;
+    `;
+
+
 export const Button = styled.button`
     background: #f4ba15;
     color: #fff;
@@ -25,4 +35,37 @@ export const EditorForm = styled.form`
     width: 100%;
     height: 100%;
     padding: 5rem;
+`;
+
+export const ImageContainer = styled.div`
+    ${'' /* background-image: url(https://app-aidooit-cloud.s3.eu-central-1.amazonaws.com/file-1642347424258-287115022.png); */}
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    
+    min-width: 10rem;
+    max-width: 15rem;
+    min-height: 10rem;
+    max-height: 15rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+
+`;
+
+export const Image = styled.img`
+    width: 100%;
+    max-width: 15rem;
+   
+    border-radius: 5px;
+    margin: 1rem 0;
+    object-fit: cover;
+    :hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        
+    }
+    `;
+
+export const HiddenLabel = styled.label`
+    display: none;
 `;

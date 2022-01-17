@@ -43,7 +43,8 @@ function usePostData() {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await axios.get('https://aidooit-app.herokuapp.com/posts');
+        const response = await axios.get('https://aidooit-app.herokuapp.com/post');
+        console.log(response.data);
         setPosts(response.data);
       }
       catch (error) {
@@ -82,7 +83,7 @@ function App() {
               <Route path="register" element={<Register />} />
           <Route path="protected" element={<ProtectedRoute />}>
               <Route index element={<UserProfile/>} />
-              <Route path='create-post' element={<CreatePost />} />
+              <Route path='create-post' element={<CreatePost categories={categories}/>} />
               <Route path='edit-post/' element={<CreatePost />} />
               
 
