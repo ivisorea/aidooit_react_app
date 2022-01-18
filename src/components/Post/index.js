@@ -18,7 +18,7 @@ export const Post = () => {
         try {
             const getPost = async () => {
                 const response = await 
-                    axios.get(`https://aidooit-app.herokuapp.com/post/${PostId}`);
+                    axios.get(`http://localhost:4000/post/${PostId}`);
                 setPost(response.data);
             };
             getPost();

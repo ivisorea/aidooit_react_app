@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { Controller, useForm } from "react-hook-form";
-import { Button, EditorForm, Image, HiddenLabel, FormContainer } from "./styles";
+import { Button, EditorForm, Image, HiddenLabel, FormContainer, ContainerInput, InputProduct, InputUrl, DeleteIcon } from "./styles";
 import { TextEditor } from "../TextEditor";
 import './styles.css'
 
 export const CreatePost = ({categories}) => {
     const [imageLocation, setImageLocation] = useState('');
     const [image, setImage] = useState();
+    const [urlList, setUrlList] = useState([
+      {url: ''}
+    ]);
     const showImage = ('https://app-aidooit-cloud.s3.eu-central-1.amazonaws.com/file-1642347424258-287115022.png')
 
     useEffect(() => {
@@ -39,6 +42,16 @@ export const CreatePost = ({categories}) => {
           console.log(error);
         }
       };
+      
+      const handleAddUrl = () => {
+        setUrlList([...urlList, {url: ''}]);
+      };
+      
+      const handleRemoveUrl = index => {
+        const newlist = [...urlList];
+        newlist.splice(index, 1);
+        setUrlList(newlist);
+      };
 
     const { 
         register,
@@ -49,11 +62,8 @@ export const CreatePost = ({categories}) => {
         reset
     } = useForm({defaultValues: { title: '',image: '', body: '', category: ''}});
 
-      
-
     setValue('image', imageLocation)
    return (
-     
         <EditorForm onSubmit={handleSubmit(onSubmit)}>
           <FormContainer>
             <div class="row">
@@ -117,13 +127,35 @@ export const CreatePost = ({categories}) => {
                       <TextEditor onChange={onChange}/>
                       }
                   />
-                  <div>
-                  <input type='text'/>
                   <br/>
-                  <input type='text'/>
-                  <br/>
-                  <input type='text'/>
-            </div>
+                  <label>Add list of materials with url</label>
+                  {urlList.map((url, index) => (
+                    <div  key={index}>
+                      <ContainerInput className="col-sm-12">
+                        <InputProduct placeholder='Material' type='text' className="form-control border"/>
+                        <InputUrl placeholder="Url" type='text' className="form-control border"/>
+                          <div>
+                            {urlList.length !== 1 && (
+                              <button onClick={() => handleRemoveUrl(index)}>
+                                <i class="fas fa-trash-alt" style={{margin: '1rem  0.5rem 0.5rem 0.5rem', fontSize: '1.2rem', color: '#f4ba15'}}></i>
+                              </button>
+                            )}
+                          </div>
+                      </ContainerInput>
+                      {urlList.length -1 === index && urlList.length < 5 && (
+                        <Button 
+                        className="btn rounded-pill"
+                        onClick={handleAddUrl}
+                        >
+                            <span>Add Product</span>
+                        </Button>
+                      )}
+                      
+                    </div>
+                  ))}
+                   
+                  
+                 
               </div>
             
             </div>

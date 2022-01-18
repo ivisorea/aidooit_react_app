@@ -99,6 +99,21 @@ const AuthState = ({ children }) => {
     localStorage.removeItem('token')
   }
 
+  const updateUser = async (dataToUpdate) => {
+    try {
+      const {data: userData} = await axios.put(
+        `https://aidooit-app.herokuapp.com/user/${user._id}`,
+        { ...user, ...dataToUpdate },
+        {
+          headers: { Authorization: localStorage.getItem("token") },
+        }
+      );
+      setUser(userData);
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   const images_upload_handler = async (blobInfo, success, failure, progress) => {
     const formData = new FormData();
     formData.append('file', blobInfo.blob(), blobInfo.filename());
@@ -119,7 +134,7 @@ const AuthState = ({ children }) => {
 
 
   return (
-    <AuthContext.Provider value={{images_upload_handler, isAuthenticated, signup, signin, signout, loading, user }}>
+    <AuthContext.Provider value={{images_upload_handler, isAuthenticated, signup, updateUser, signin, signout, loading, user }}>
       {children}
     </AuthContext.Provider>
   );

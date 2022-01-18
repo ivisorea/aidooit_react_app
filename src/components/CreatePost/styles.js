@@ -69,3 +69,23 @@ export const Image = styled.img`
 export const HiddenLabel = styled.label`
     display: none;
 `;
+
+export const ContainerInput = styled.div`
+    display: flex;
+    alignItems: center;
+    justify-content: center;
+
+`;
+
+export const InputProduct = styled.input`
+    margin: 0.5rem 0.25rem 0.25rem 0;
+    width:30%;
+    `;
+
+export const InputUrl = styled.input`
+    margin: 0.5rem 0 0.25rem 0;
+    width:70%;
+    `;
+export const DeleteIcon = styled.i`
+  
+    `;
