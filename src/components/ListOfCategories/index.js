@@ -14,8 +14,7 @@ export const ListOfCategories = ({categories, isLoading}) => {
                     :
                     categories.map((category) => 
                 <ListItem key={category._id}>
-                        <Category {...category}
-                            />
+                        <Category {...category}/>
                 </ListItem>
                 )}
             </List>

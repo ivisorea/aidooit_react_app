@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { SearchItem, SearchList } from './styles';
+import './styles.css';
 
 export const Search = ({posts, categories}) => {
     const [postTitle, setPostTitle] = useState([]);
@@ -19,24 +21,24 @@ export const Search = ({posts, categories}) => {
     return (
         <>
           <div class="col-md-8 col-lg-6 col-xl-5 mx-auto p-5 mt-5">
-                <div class="input-group pt-4">
-                    <input style={{position: 'relative', height: '45px', fontSize: '1.3rem', fontStyle: 'italic'}}
-                        className="form-control border rounded-pill shadow-sm" 
+                <div class="input-group pt-4" >
+                    <input style={{ height: '45px', fontSize: '1.3rem', fontStyle: 'italic'}}
+                        className="form-control border shadow-sm" 
                         type="search" 
                         placeholder="Search ..."
                         value={postTitle}
                         onChange={e => onChangeHandler(e.target.value)}
-                        id="example-search-input"/>
+                        />
                         {suggestions.length > 0 &&
-                            <ul class="border shadow-sm">
+                            <SearchList class="form-control border shadow-sm suggest-list">
                                 {suggestions.map(suggestion => (
-                                    <li key={suggestion._id}>
+                                    <SearchItem key={suggestion._id} >
                                         <Link to={`/detail/${suggestion._id}`}>
                                             {suggestion.title}
                                         </Link>
-                                    </li>
+                                    </SearchItem>
                                 ))}
-                            </ul>
+                            </SearchList>
                         }
                 </div>
             </div>

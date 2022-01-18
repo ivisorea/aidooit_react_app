@@ -13,6 +13,9 @@ export const ListItem = styled.li`
     padding: 0.5rem;
     flex-grow: 1;
     height: 40vh;
+    :hover {
+        cursor: pointer;
+        opacity: 0.7;
 `;
 
 export const StyledSpinner = styled.img`

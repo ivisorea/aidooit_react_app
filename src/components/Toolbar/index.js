@@ -7,6 +7,7 @@ import { NavDropdown } from 'react-bootstrap'
 import './styles.css'
 import { useAuth } from '../../context/AuthContext'
 import { Popup } from '../Popup'
+import { Search } from '../Search'
 
 
 export const Toolbar = () => {
@@ -26,7 +27,7 @@ export const Toolbar = () => {
                     className="d-inline-block align-top" 
                     alt="Aidooit_logo"/>
                 </a>
-
+                
                 <div className=" d-flex justify-content-end">
                 {isAuthenticated ? (
                     <>
@@ -38,6 +39,7 @@ export const Toolbar = () => {
                             </div>
                             }>
                         <NavDropdown.Item href="#action/3.1">Welcome {user.first_name}</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="protected">Profile Page</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item as={Link} to="protected/create-post">Add Post</NavDropdown.Item>
                         <NavDropdown.Item href="protected/edit-post">Edit Post</NavDropdown.Item>
@@ -64,10 +66,6 @@ export const Toolbar = () => {
                         </Button>
                     </Link>
                     
-                        <Button className='btn' onClick={() => setShowPopup(!showPopup)}>
-                        <TextBtn>popup</TextBtn>
-                        </Button>
-                   
                     </> 
 
                 )}  

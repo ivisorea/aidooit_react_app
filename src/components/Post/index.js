@@ -5,6 +5,7 @@ import { Spinner } from '../Spinner'
 import { Img } from '../PostCardUserProfile/styles'
 import { ContainerPost, Title } from './style'
 import { Parser } from 'html-to-react'
+import { AffiliateLink } from '../AffiliateLink'
 
 
 
@@ -18,7 +19,7 @@ export const Post = () => {
         try {
             const getPost = async () => {
                 const response = await 
-                    axios.get(`http://localhost:4000/post/${PostId}`);
+                    axios.get(`https://aidooit-app.herokuapp.com/post/${PostId}`);
                 setPost(response.data);
             };
             getPost();
@@ -29,6 +30,7 @@ export const Post = () => {
         }
     }, [PostId]);
 
+    
     return (
         <>
             {
@@ -48,7 +50,15 @@ export const Post = () => {
                     <div>
                     {Parser().parse(post.body)}
                     </div>
-                    {/* <p>{post.date}</p> */}
+                    
+                    {
+                        post.materials_url && post.materials_url.map((url) => (
+                                <li key={url._id}>
+                                    <AffiliateLink {...url}/>
+                                </li>
+                        ))
+                    }
+
                 </ContainerPost>
             }
         </>

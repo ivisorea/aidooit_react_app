@@ -86,6 +86,12 @@ export const InputUrl = styled.input`
     margin: 0.5rem 0 0.25rem 0;
     width:70%;
     `;
-export const DeleteIcon = styled.i`
+export const DeleteIcon = styled.button`
   
+    `;
+
+export const DeleteInput = styled.i`
+    margin: 1rem  0.5rem 0.5rem 0.5rem,
+    font-size: 1.2rem, 
+    color: #f4ba15
     `;
