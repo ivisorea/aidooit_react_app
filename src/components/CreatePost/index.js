@@ -127,13 +127,13 @@ export const CreatePost = ({categories}) => {
                   </label>
                 </div>
               </div>
-              <div class="col-sm-8">
+              <div class="col-sm-8" >
                 <Controller 
                   control={control}
                   name='body'
                   rules={{ required: 'Body cannot be empty' }}
                   render = { ({ field: { onChange, value } }) => 
-                      <TextEditor onChange={onChange}/>
+                      <TextEditor onChange={onChange}/> 
                       }
                   />
                   <br/>

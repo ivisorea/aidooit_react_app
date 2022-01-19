@@ -11,6 +11,7 @@ export const Image = styled.img`
     :hover {
         cursor: pointer;
         opacity: 0.7;
+      
 `;
 
 export const ImgFooter = styled.div`

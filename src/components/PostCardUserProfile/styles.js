@@ -12,7 +12,7 @@ export const Card = styled.div`
 
 export const PostWrapper = styled.div`
     display: flex;
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 1%;
     overflow: hidden;
@@ -23,7 +23,7 @@ export const PostWrapper = styled.div`
 
 export const Img = styled.img`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
+    border-radius: 5px;
     object-fit: cover;
     top: 0;
     width: 10rem;
@@ -42,12 +42,20 @@ export const Body = styled.p`
     line-height: 1.5;
     margin-bottom: 0.5rem;
     color: #6D6B6B;
+    
+    display: -webkit-box;
+    max-width: 400px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+   
 `;
 
 export const DescWrapper = styled.div`
     padding: 0 2% 0 2%;
     width: 100%;
     color: #000;
+   
 `;
 
 export const Button = styled.button`

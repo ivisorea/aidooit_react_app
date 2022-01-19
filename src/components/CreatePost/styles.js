@@ -34,7 +34,8 @@ export const EditorForm = styled.form`
     justify-content: center;
     width: 100%;
     height: 100%;
-    padding: 5rem;
+    padding: 10rem;
+ 
 `;
 
 export const ImageContainer = styled.div`

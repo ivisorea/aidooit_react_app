@@ -1,10 +1,11 @@
 .suggest-list a {
-    color: rgb(87, 47, 151);
+    color: rgb(121, 64, 212);
     text-decoration: none;
     font-weight: normal;
     font-style: normal;
     text-align: center;
     border-radius: 5px;
+    padding: 20px 165px 12px 165px;
 }
 
 .delete-button, .edit-button {

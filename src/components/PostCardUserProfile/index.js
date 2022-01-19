@@ -21,7 +21,7 @@ export const PostCardUserProfile = ({_id, image, title, body, likes}) => {
                             lines={4}
                             anchorClass=""  
                             expanded={false}
-                            width={500}
+                            width={900}
                             >
                             {Parser().parse(body)}
 
