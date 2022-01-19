@@ -69,18 +69,13 @@ export const IconHeart = styled.i`
     margin-right: 0.5rem;
 `;
 
-/*export const EditButton = styled.div`
-margin-left: 0.5rem;
-margin-right: 0.5rem;
-position: relative;
-`;
-
 export const BtnContainer = styled.div`
 margin-left: 0.5rem;
 margin-right: 0.5rem;
 position: relative;
+margin-top: 10rem;
 `;
 
-*/
+
 
   

@@ -7,7 +7,7 @@ import {TextBtn } from '../Toolbar/styles';
 
 export const PostCardUserProfile = ({_id, image, title, body, likes}) => {
 
-    
+
 
 
     return (
@@ -33,19 +33,21 @@ export const PostCardUserProfile = ({_id, image, title, body, likes}) => {
                         </Button>
 
                     </DescWrapper>
-                    
-                 { /* <BtnContainer> 
-                        <Button className="btn">
+
+
+                   
+                 <BtnContainer> 
+                        <button className="btn" /*onClick={editPost}*/>
                         <TextBtn>EDIT</TextBtn> 
-                        </Button>
+                        </button>
                      </BtnContainer>
 
                     <BtnContainer>
-                        <Button className="btn">
+                        <button className="btn" /*onClick={deletePost}*/>
                         <TextBtn>DELETE</TextBtn> 
-                        </Button>
+                        </button>
                     </BtnContainer> 
-                 */}  
+                 
                 </PostWrapper>
             </a>
 

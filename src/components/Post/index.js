@@ -29,13 +29,8 @@ export const Post = () => {
             console.log(error);
         }
       
-
+      
     }, [PostId]);
-
- 
-    
-
-
 
 
     return (
