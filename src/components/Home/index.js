@@ -13,7 +13,6 @@ const Home = ({categories, posts, isLoading }) => {
                 <div class="search">search
             <Search posts={posts} categories={categories}/>
             <ListOfCategories categories={categories} isLoading={isLoading}/>
-            <Footer/>
                 </div>
             </div>
         </>

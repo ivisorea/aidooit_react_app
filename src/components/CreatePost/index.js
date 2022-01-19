@@ -44,7 +44,6 @@ export const CreatePost = ({categories}) => {
           const { data: newPost } = await axios.post("https://aidooit-app.herokuapp.com/post", data, {
             headers: { Authorization: localStorage.getItem('token') }
           });
-          console.log(newPost);
           setPostNew(newPost);
           navigate('/detail/' + newPost._id);
           reset();

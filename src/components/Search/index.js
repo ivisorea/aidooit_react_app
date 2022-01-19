@@ -21,7 +21,7 @@ export const Search = ({posts, categories}) => {
     return (
         <>
           <div class="col-md-8 col-lg-6 col-xl-5 mx-auto p-5 mt-5">
-                <div class="input-group pt-4" >
+                <div class=" pt-4" >
                     <input style={{ height: '45px', fontSize: '1.3rem', fontStyle: 'italic'}}
                         className="form-control border shadow-sm" 
                         type="search" 
@@ -29,17 +29,17 @@ export const Search = ({posts, categories}) => {
                         value={postTitle}
                         onChange={e => onChangeHandler(e.target.value)}
                         />
-                        {suggestions.length > 0 &&
-                            <SearchList class="form-control border shadow-sm suggest-list">
-                                {suggestions.map(suggestion => (
-                                    <SearchItem key={suggestion._id} >
-                                        <Link to={`/detail/${suggestion._id}`}>
-                                            {suggestion.title}
-                                        </Link>
-                                    </SearchItem>
-                                ))}
-                            </SearchList>
-                        }
+                    {suggestions.length > 0 &&
+                        <SearchList class="form-control border shadow-sm suggest-list">
+                            {suggestions.map(suggestion => (
+                                <SearchItem key={suggestion._id} >
+                                    <Link to={`/detail/${suggestion._id}`}>
+                                        {suggestion.title}
+                                    </Link>
+                                </SearchItem>
+                            ))}
+                        </SearchList>
+                    }
                 </div>
             </div>
         </>
