@@ -19,6 +19,7 @@ export const PostCardUserProfile = ({_id, image, title, body, likes}) => {
                             <p>{body}</p>
 
                         </ShowMoreText>
+                        {/* <p>{body}</p> */}
                         <Button>
                             <i class="far fa-heart"></i>
                             {likes} Likes

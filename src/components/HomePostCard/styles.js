@@ -8,6 +8,9 @@ export const Image = styled.img`
     overflow: hidden;
     object-fit: cover;
     display: block;
+    :hover {
+        cursor: pointer;
+        opacity: 0.7;
 `;
 
 export const ImgFooter = styled.div`
@@ -24,6 +27,9 @@ export const Title = styled.h5`
     font-weight: bold;
     color: #684595;
     margin: 0;
+    :hover {
+        cursor: pointer;
+        opacity: 0.7;
 `;
 
 export const Button = styled.button`

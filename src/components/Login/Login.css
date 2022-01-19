@@ -24,6 +24,13 @@ color:rgb(245, 248, 248);
 } 
 
 
+.login-button {
+    position: absolute;
+    left: 22%;
+    bottom: -6%;
+}
+
+
 
 
 input[type=text], input[type=password],  input[type=email]{

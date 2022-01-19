@@ -23,6 +23,21 @@ export const UserPhoto = styled.div`
     }
 `;
 
+export const UserPhotoImg = styled.img`
+    border: 5px solid #f4ba15;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    left: -4px;
+    top: -4px;
+    `;
+
 export const UserPhotoIcon = styled.i`
     color: #f4ba15;
     ${'' /* aligncenter: center;
