@@ -62,7 +62,7 @@ export const Toolbar = () => {
                     </Link>
                     <Link to={`/register`}>
                         <Button className='btn'>
-                        <TextBtn>SignUp</TextBtn>
+                        <TextBtn>Sign Up</TextBtn>
                         </Button>
                     </Link>
                     

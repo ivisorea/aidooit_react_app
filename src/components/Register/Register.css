@@ -30,10 +30,13 @@ border-radius: 50px;
 
 .login-text {
 color:rgb(245, 248, 248);
-padding-top: 10px;
+padding-top:10px;
 
 }
 
+.register-button {
+margin-top: -2%;
+}
 
 /*.btn {
 padding: 1.5rem;

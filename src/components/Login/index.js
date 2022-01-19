@@ -23,10 +23,9 @@ import { Button, TextBtn} from '../Toolbar/styles';
  
  
   return (
-    <div className="login-box" style={{ height: '30rem' , width: '25rem', paddingTop:'4rem', borderRadius:'20px'}}>
-      <div className="col-8 "></div>
-        <form onSubmit= {handleSubmit(onSubmit)}>
-          <div class="form-floating mb-3">
+    <form onSubmit= {handleSubmit(onSubmit)}>
+      <div className="login-box" style={{ height: '30rem' , width: '25rem', paddingTop:'4rem', borderRadius:'20px'}}>
+          <div className="form-floating mb-3">
              <input
                type="email"
                className={
@@ -38,9 +37,9 @@ import { Button, TextBtn} from '../Toolbar/styles';
              />
              <label for="floatingInput">Email</label>
              {errors.email && <div>Email is required</div>}
-          </div>
+          
             <br />
-          <div class="form-floating">
+          <div className="form-floating">
              <input
                type="password"
                className={
@@ -52,23 +51,22 @@ import { Button, TextBtn} from '../Toolbar/styles';
              />
              <label for="floatingInput">Password</label>
              {errors.password && <div>Password is required</div>}
-             </div>
+             
             <br/>
-           
-            <Button onClick={Login} className="login-button" className="btn rounded-pill login-button"> 
-            <TextBtn>LOGIN</TextBtn> 
+           <div className="login-button">
+            <Button onClick={Login} className="btn login-button "> 
+              <TextBtn>LOGIN</TextBtn> 
             </Button>
+          </div>
             
-            </form>
           <div className="login-text">
-            <h5>Don`t have an accountAlread? Sign Up</h5>
-                  
-           
-          
-            </div> 
-            
-       </div>
-      
+            <h5>Don`t have an account Alread? Sign Up</h5>
+          </div> 
+        </div>
+      </div>
+    </div>
+  
+  </form> 
       
 
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import ShowMoreText from "react-show-more-text";
 import { Img, PostWrapper, DescWrapper, Title, Button, Card } from './styles';
+import { Parser } from 'html-to-react'
 
 export const PostCardUserProfile = ({_id, image, title, body, likes}) => {
     return (
@@ -16,10 +17,10 @@ export const PostCardUserProfile = ({_id, image, title, body, likes}) => {
                             expanded={false}
                             width={500}
                             >
-                            <p>{body}</p>
+                            {Parser().parse(body)}
 
                         </ShowMoreText>
-                        {/* <p>{body}</p> */}
+                        
                         <Button>
                             <i class="far fa-heart"></i>
                             {likes} Likes
