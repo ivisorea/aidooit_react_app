@@ -13,10 +13,13 @@ import {
 } from "./styles";
 import { TextEditor } from "../TextEditor";
 import './styles.css'
+import { useNavigate} from "react-router-dom";
 
 export const CreatePost = ({categories}) => {
     const [imageLocation, setImageLocation] = useState('');
     const [image, setImage] = useState();
+    const [postNew, setPostNew] = useState([]);
+    const navigate = useNavigate();
     const showImage = ('https://app-aidooit-cloud.s3.eu-central-1.amazonaws.com/file-1642347424258-287115022.png')
 
     useEffect(() => {
@@ -42,12 +45,15 @@ export const CreatePost = ({categories}) => {
             headers: { Authorization: localStorage.getItem('token') }
           });
           console.log(newPost);
-         reset();
-        } catch (error) {
+          setPostNew(newPost);
+          navigate('/detail/' + newPost._id);
+          reset();
+          } catch (error) {
           console.log(error);
         }
       };
-      
+
+    
     const { 
         register,
         handleSubmit, 
@@ -165,7 +171,9 @@ export const CreatePost = ({categories}) => {
               </div>
             </div>
             <br/>
-            <Button className="btn rounded-pill" type='submit'>Create Post</Button>
+            
+              <Button className="btn rounded-pill" type='submit'>Create Post</Button>
+           
                 <HiddenLabel htmlFor='image' className='form-label'>
                   Image:
                   <input 

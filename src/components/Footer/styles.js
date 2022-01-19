@@ -2,11 +2,9 @@ import styled from "styled-components";
 
 export const FooterCont = styled.div`
    align-items: center;
-    padding: 5rem 1rem 1rem 1rem;
-    display: flex;
+    padding: 5rem 5rem 1rem 5rem;
     width: 100%;
-    justify-content: space-between;
-
+    text-align: center;
 `;
 
 
@@ -16,6 +14,7 @@ export const SocialMediaIcon = styled.i`
     font-size: 1.5rem;
     margin: 0.5rem;
     cursor: pointer;
+    justify-content: center;
     &:hover {
         color: #fff;
     }

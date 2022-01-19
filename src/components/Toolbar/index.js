@@ -40,13 +40,23 @@ export const Toolbar = () => {
                         <NavDropdown.Item href="#action/3.1">Welcome {user.first_name}</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to="protected">Profile Page</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item as={Link} to="protected/create-post">Add Post</NavDropdown.Item>
-                        <NavDropdown.Item href="protected/edit-post">Edit Post</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Delete Post</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="protected/create-post">
+                        <i class="far fa-plus-square icon"></i>
+                            Add Post</NavDropdown.Item>
+                        <NavDropdown.Item href="protected/edit-post">
+                        <i class="far fa-edit icon"></i>
+                        Edit Post</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.4">
+                        <i class="far fa-trash-alt icon"></i>
+                        Delete Post</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item onClick={() => setShowPopup(!showPopup)}>Settings</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => setShowPopup(!showPopup)}>
+                        <i class="fas fa-cog icon"></i>
+                        Settings</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item onClick={signout} as={Link} to="login">Log Out</NavDropdown.Item>
+                        <NavDropdown.Item onClick={signout} as={Link} to="login">
+                        <i class="fas fa-sign-out-alt icon"></i>
+                        Log Out</NavDropdown.Item>
                     </NavDropdown>
                     
                     
