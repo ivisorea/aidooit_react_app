@@ -7,7 +7,6 @@ import { NavDropdown } from 'react-bootstrap'
 import './styles.css'
 import { useAuth } from '../../context/AuthContext'
 import { Popup } from '../Popup'
-import { Search } from '../Search'
 
 
 export const Toolbar = () => {
@@ -72,6 +71,7 @@ export const Toolbar = () => {
                 </div>
                 <Popup trigger={showPopup} setTrigger={setShowPopup}>
                         <h4>Settings Profile</h4>
+                        
                         <input type='text' />
                         <button className = 'btn'
                             onClick={() => editProfileHandler()}

@@ -7,9 +7,15 @@ import { Search } from '../Search'
 const Home = ({categories, posts, isLoading }) => {
     return (
         <>
-        <Search posts={posts} categories={categories}/>
+            
+
+            <div class="grid-container">
+                <div class="search">search
+            <Search posts={posts} categories={categories}/>
             <ListOfCategories categories={categories} isLoading={isLoading}/>
             <Footer/>
+                </div>
+            </div>
         </>
     )
 }

@@ -1,8 +1,9 @@
 import React from 'react'
-import { FooterCont, IconLink, SocialMediaIcon } from './styles'
+import { CopyRight, FooterCont, IconLink, SocialMediaIcon } from './styles'
 
 export const Footer = () => {
     return (
+        <>
         <FooterCont >
             <nav>
                 <ul>
@@ -46,7 +47,10 @@ export const Footer = () => {
                     <i className="fab fa-youtube"></i>
                 </IconLink>
             </SocialMediaIcon>
+            
         </FooterCont>
+        <CopyRight>© 2022 Aidooit</CopyRight>
+        </>
     )
 }
 

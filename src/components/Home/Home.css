@@ -1,1 +1,14 @@
- 
+ .grid-container {
+    display: grid;
+    grid-template-areas:
+      'search search search'
+      'main main main'
+      'footer footer footer';
+    grid-gap: 10px;
+    padding: 10px;
+ }
+
+ grid-container > div {
+    text-align: center;
+    padding: 20px 0;
+  }
