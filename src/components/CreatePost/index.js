@@ -1,7 +1,16 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import { Controller, useForm } from "react-hook-form";
-import { Button, EditorForm, Image, HiddenLabel, FormContainer } from "./styles";
+import { Controller, useFieldArray, useForm } from "react-hook-form";
+import { 
+  Button, 
+  EditorForm, 
+  Image, 
+  HiddenLabel, 
+  FormContainer, 
+  ContainerInput, 
+  InputProduct, 
+  InputUrl 
+} from "./styles";
 import { TextEditor } from "../TextEditor";
 import './styles.css'
 
@@ -33,13 +42,12 @@ export const CreatePost = ({categories}) => {
             headers: { Authorization: localStorage.getItem('token') }
           });
           console.log(newPost);
-          //clear form
          reset();
         } catch (error) {
           console.log(error);
         }
       };
-
+      
     const { 
         register,
         handleSubmit, 
@@ -47,13 +55,24 @@ export const CreatePost = ({categories}) => {
         formState: { errors },
         control,
         reset
-    } = useForm({defaultValues: { title: '',image: '', body: '', category: ''}});
-
-      
+    } = useForm({defaultValues: { 
+        title: '',
+        image: '', 
+        body: '', 
+        category: '',
+        materials_url: [{
+          material_name: '', 
+          material_url: ''
+        }]
+      }});
+    
+    const { fields, append, remove } = useFieldArray({
+        control,
+        name: 'materials_url',
+    });
 
     setValue('image', imageLocation)
    return (
-     
         <EditorForm onSubmit={handleSubmit(onSubmit)}>
           <FormContainer>
             <div class="row">
@@ -61,7 +80,7 @@ export const CreatePost = ({categories}) => {
                 <label htmlFor='title' className='form-label'>
                       Title:
                       <input
-                      className={errors.title ? 'form-control is-invalid' : 'form-control'}
+                      className={errors.title ? 'form-control is-invalid' : 'form-control border'}
                       {...register('title', { required: true })}
                       />
                 </label>
@@ -87,26 +106,21 @@ export const CreatePost = ({categories}) => {
                       onChange={e => setImage(e.target.files[0])}
                       />
                       </div>
-                        
                     </label>
                 </div>
-                
                 <div>
                   <label>
-                      
                     <select 
-                      className={errors.category ? 'form-control is-invalid' : 'form-control border border-0 border-bottom'}
+                      className={errors.category ? 'form-control is-invalid' : 'form-control border '}
                       {...register('category', { required: true })}
                     > 
                       <option value=''>Select Category</option>
                       {categories.map(category => (
                           <option key={category.id} value={category._id}>{category.name}</option>
                       ))}
-
                     </select>
                   </label>
                 </div>
-                
               </div>
               <div class="col-sm-8">
                 <Controller 
@@ -117,11 +131,41 @@ export const CreatePost = ({categories}) => {
                       <TextEditor onChange={onChange}/>
                       }
                   />
+                  <br/>
+                  {fields.map(({id}, index) => {
+                    return (
+                    <div >
+                    <ContainerInput key={id} className="col-sm-12">
+                      <InputProduct 
+                        className={'form-control border'}
+                        placeholder="Material Name"
+                        {...register(`materials_url[${index}].material_name`)}
+                        defaultValue={''}
+                        />
+                      <InputUrl
+                        className={'form-control border'}
+                        placeholder="Material Url" 
+                        {...register(`materials_url[${index}].material_url`)}
+                        defaultValue={''}
+                        />
+                        <button onClick={() => remove(index)}>
+                        <i class="fas fa-trash-alt" style={{margin: '1rem  0.5rem 0.5rem 0.5rem', fontSize: '1.2rem', color: '#f4ba15'}}></i>
+                      </button>
+                    </ContainerInput>
+                      
+                    </div>
+                    )
+                  })}
+                  <Button 
+                    className="btn rounded-pill"
+                    type="button" 
+                    onClick={() => append({ })}>
+                    Add Material
+                  </Button>
               </div>
             </div>
             <br/>
             <Button className="btn rounded-pill" type='submit'>Create Post</Button>
-            
                 <HiddenLabel htmlFor='image' className='form-label'>
                   Image:
                   <input 
@@ -131,7 +175,6 @@ export const CreatePost = ({categories}) => {
                 </HiddenLabel>
           </FormContainer>
         </EditorForm>
-     
     );
 };
 

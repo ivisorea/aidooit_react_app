@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Spinner } from '../Spinner'
-import { Img } from '../PostCardUserProfile/styles'
-import { ContainerPost, Title } from './style'
+
+import { ContainerPost, Title, Img, Body, ListItem, MaterialList } from './style'
 import { Parser } from 'html-to-react'
+import { AffiliateLink } from '../AffiliateLink'
 
 
 
@@ -29,6 +30,7 @@ export const Post = () => {
         }
     }, [PostId]);
 
+    
     return (
         <>
             {
@@ -45,10 +47,19 @@ export const Post = () => {
                         </div>
                     </div>
                     
-                    <div>
+                    <Body>
                     {Parser().parse(post.body)}
-                    </div>
-                    {/* <p>{post.date}</p> */}
+                    </Body>
+
+                    <MaterialList>List of Materials</MaterialList>
+                    {
+                        post.materials_url && post.materials_url.map((url) => (
+                                <ListItem key={url._id}>
+                                    <AffiliateLink {...url}/>
+                                </ListItem>
+                        ))
+                    }
+
                 </ContainerPost>
             }
         </>

@@ -8,12 +8,22 @@ export const Image = styled.img`
     overflow: hidden;
     object-fit: cover;
     display: block;
-    
 `;
 
 export const Title = styled.h5`
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    width: 90%;
+    
     color: #684595;
+    margin: 0;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    :hover {
+        cursor: pointer;
+        opacity: 0.7;
 `;
+
+
+
