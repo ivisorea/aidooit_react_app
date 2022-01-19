@@ -28,9 +28,16 @@ export const Post = () => {
         catch (error) {
             console.log(error);
         }
+      
+
     }, [PostId]);
 
+ 
     
+
+
+
+
     return (
         <>
             {

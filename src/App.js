@@ -84,7 +84,7 @@ function App() {
           <Route path="protected" element={<ProtectedRoute />}>
               <Route index element={<UserProfile/>} />
               <Route path='create-post' element={<CreatePost categories={categories}/>} />
-              <Route path='edit-post/' element={<CreatePost />} />
+              
               
 
           </Route>

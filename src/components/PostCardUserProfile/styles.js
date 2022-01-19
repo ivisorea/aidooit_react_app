@@ -60,3 +60,19 @@ export const IconHeart = styled.i`
     font-size: 1.5rem;
     margin-right: 0.5rem;
 `;
+
+/*export const EditButton = styled.div`
+margin-left: 0.5rem;
+margin-right: 0.5rem;
+position: relative;
+`;
+
+export const BtnContainer = styled.div`
+margin-left: 0.5rem;
+margin-right: 0.5rem;
+position: relative;
+`;
+
+*/
+
+  

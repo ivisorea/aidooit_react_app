@@ -18,6 +18,7 @@ export const CreatePost = ({categories}) => {
     const [imageLocation, setImageLocation] = useState('');
     const [image, setImage] = useState();
     const showImage = ('https://app-aidooit-cloud.s3.eu-central-1.amazonaws.com/file-1642347424258-287115022.png')
+   
 
     useEffect(() => {
       try {
@@ -47,7 +48,11 @@ export const CreatePost = ({categories}) => {
           console.log(error);
         }
       };
+     
       
+
+  
+
     const { 
         register,
         handleSubmit, 
