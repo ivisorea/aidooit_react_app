@@ -31,7 +31,7 @@ export const PostListUserProfile = ({posts}) => {
     const deletePost = async (id) => {
         if (window.confirm('Are you sure you want to delete this post?')) {
         try {
-             await axios.delete(`http://localhost:4000/post/${id}`, {
+             await axios.delete(`https://aidooit-app.herokuapp.com/post/${id}`, {
                 headers: { Authorization: localStorage.getItem('token') }
             });
             setPostsByAuthor(postsByAuthor.filter(post => post._id !== id));

@@ -43,9 +43,6 @@ export const Toolbar = () => {
                         <NavDropdown.Item as={Link} to="protected/create-post">
                         <i class="far fa-plus-square icon"></i>
                             Add Post</NavDropdown.Item>
-                        <NavDropdown.Item href="protected/edit-post">
-                        <i class="far fa-edit icon"></i>
-                        Edit Post</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item onClick={() => setShowPopup(!showPopup)}>
                         <i class="fas fa-cog icon"></i>
