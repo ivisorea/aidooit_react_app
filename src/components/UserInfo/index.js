@@ -1,18 +1,30 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '../Toolbar/styles';
+import { useAuth } from '../../context/AuthContext';
 
 export const UserInfo = () => {
+    const { user, updateUser } = useAuth();
 
-const onSubmit = data => {
-    console.log(data);
-};
+    const onSubmit = data => {
+        updateUser(data);
+    };
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-      } = useForm();
+      } = useForm(
+        {defaultValues: {
+            first_name: user.first_name,
+            last_name: user.last_name,
+            country: user.country,
+            city: user.city,
+            house_number: user.house_number,
+            street: user.street,
+            zip_code: user.zip_code,
+        }},
+      );
 
   return (
     <>
@@ -66,7 +78,7 @@ const onSubmit = data => {
                     errors.name ? "form-control is invalid" : "form-control"
                     }
                     placeholder="House number"
-                    {...register("hause_number", { required: false })}
+                    {...register("house_number", { required: false })}
                 />
                 <label for="floatingInput">House number</label>
                 {errors.password && <div>Password is required</div>}

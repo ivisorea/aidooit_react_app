@@ -14,9 +14,6 @@ export const Toolbar = () => {
     const { isAuthenticated, user , signout} = useAuth();
     const [showPopup, setShowPopup] = useState(false);
 
-    const editProfileHandler = () => {
-       
-    };
     return (
         <nav className="navbar navbar-light bg-light fixed-top rounded-bottom navbar">
                 <a className="nav-link nav-logo" href="/">
@@ -46,9 +43,6 @@ export const Toolbar = () => {
                         <NavDropdown.Item as={Link} to="protected/create-post">
                         <i class="far fa-plus-square icon"></i>
                             Add Post</NavDropdown.Item>
-                        <NavDropdown.Item href="protected/edit-post">
-                        <i class="far fa-edit icon"></i>
-                        Edit Post</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item onClick={() => setShowPopup(!showPopup)}>
                         <i class="fas fa-cog icon"></i>
@@ -80,7 +74,7 @@ export const Toolbar = () => {
                 )}  
                 </div>
                 <Popup trigger={showPopup} setTrigger={setShowPopup}>
-                        <h4>Settings Profile</h4>
+                        <h4>Profile Settings</h4>
                         <hr />
                         <UserInfo/>
                         

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./styles.css";
 import axios from "axios";
 import { PostListUserProfile } from "../PostListUserProfile";
-import { Popup } from "../Popup";
 import { useAuth } from "../../context/AuthContext";
 import { UserPhotoImg } from "./styles";
 
@@ -58,12 +57,7 @@ export const UserProfile = () => {
               }}
             />
           </div>
-          {/* <button 
-                      className='user-photo-icon'
-                      onClick={() => setShowPopup(!showPopup)}
-                      >
-                        <i class="fas fa-camera icon-camera"></i>
-                    </button> */}
+         
         </div>
         <div className="user-name-container">
           <h1 className="user-name">
@@ -71,16 +65,6 @@ export const UserProfile = () => {
           </h1>
         </div>
       </div>
-      {/* <Popup trigger={showPopup} setTrigger={setShowPopup}>
-                <h4>Upload User Image</h4>
-                <input type='file' />
-                
-                <button className = 'btn'
-                    onClick={() => fileUploadHandler()}
-                >
-                    <i class="fas fa-upload"></i>
-                </button>
-            </Popup> */}
       <PostListUserProfile />
     </>
   );
