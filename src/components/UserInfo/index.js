@@ -18,6 +18,7 @@ const onSubmit = data => {
     <>
        <form onSubmit={handleSubmit(onSubmit)}>
             <div>
+            <p>Personal information</p>
                 <div class="form-floating">
                     <input
                     type="text"

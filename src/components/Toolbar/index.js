@@ -81,6 +81,7 @@ export const Toolbar = () => {
                 </div>
                 <Popup trigger={showPopup} setTrigger={setShowPopup}>
                         <h4>Settings Profile</h4>
+                        <hr />
                         <UserInfo/>
                         
                 </Popup>

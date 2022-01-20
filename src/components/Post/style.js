@@ -41,3 +41,12 @@ export const MaterialList = styled.p`
     margin: 2rem 0 0.5rem 0;
     ;
 `;
+
+export const Author = styled.p`
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-style: italic;
+    margin: 1rem 0;
+    color: #684595;
+    text-align: right;
+`;
