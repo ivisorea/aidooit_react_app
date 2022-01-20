@@ -14,9 +14,6 @@ export const Toolbar = () => {
     const { isAuthenticated, user , signout} = useAuth();
     const [showPopup, setShowPopup] = useState(false);
 
-    const editProfileHandler = () => {
-       
-    };
     return (
         <nav className="navbar navbar-light bg-light fixed-top rounded-bottom navbar">
                 <a className="nav-link nav-logo" href="/">
@@ -80,7 +77,7 @@ export const Toolbar = () => {
                 )}  
                 </div>
                 <Popup trigger={showPopup} setTrigger={setShowPopup}>
-                        <h4>Settings Profile</h4>
+                        <h4>Profile Settings</h4>
                         <hr />
                         <UserInfo/>
                         

@@ -34,3 +34,9 @@
     justify-content: center;
     align-items: center;
 }
+
+.icon {
+    color: #f4ba15;
+    font-size: 1rem;
+    margin-right: 0.4rem;
+}

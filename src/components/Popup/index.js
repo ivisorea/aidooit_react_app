@@ -9,7 +9,7 @@ export const Popup = (props) => {
                     className='close-btn' 
                     onClick={() => props.setTrigger(!props.trigger)}
                     >
-                        <i class="far fa-times-circle"></i>
+                        <i class="far fa-times-circle icon"></i>
                 </button>
                 {props.children}
             </div>

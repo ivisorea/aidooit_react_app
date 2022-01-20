@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Spinner } from '../Spinner'
 import { useAuth } from '../../context/AuthContext'
 import ShowMoreText from "react-show-more-text";
-import { Img, PostWrapper, DescWrapper, Title, Button, Card, BtnContainer, BtnPost } from './styles';
+import { Img, PostWrapper, DescWrapper, Title, Button, Card, BtnContainer, BtnPost, IconLikes } from './styles';
 import { Parser } from 'html-to-react'
 import { Link } from 'react-router-dom';
 
@@ -81,16 +81,18 @@ export const PostListUserProfile = ({posts}) => {
                                         </Link>
                                         <BtnContainer>
                                             <Button>
-                                                <i class="far fa-heart"></i>
-                                                {post.likes} Likes
+                                                <i class="fas fa-heart" style={{color: '#ff0000b5'}}></i>
+                                                {post.likes} 10
                                             </Button>
+                                            
+
                                             <div>
                                             <BtnPost onClick={() => deletePost(post._id)}>
-                                                DELETE |
+                                                <i class="far fa-trash-alt"></i>
                                             </BtnPost>
                                             
                                             <BtnPost>
-                                                EDIT
+                                                <i class="far fa-edit"></i>
                                             </BtnPost>
                                             </div>
                                         </BtnContainer>

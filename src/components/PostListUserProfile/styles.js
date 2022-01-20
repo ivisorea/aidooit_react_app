@@ -82,3 +82,4 @@ export const BtnPost = styled.button`
         opacity: 0.7;
     }
 `;
+
