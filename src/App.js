@@ -17,6 +17,7 @@ import { UserProfile } from './components/UserProfile';
 import { CreatePost } from './components/CreatePost';
 import { HomeListPostByCateg } from './components/HomeListPostByCateg';
 import { Post } from './components/Post';
+import { EditPost } from './components/EditPost';
 
 //Custom Hook to get Category Data
 function useCategoryData() {
@@ -84,7 +85,7 @@ function App() {
           <Route path="protected" element={<ProtectedRoute />}>
               <Route index element={<UserProfile/>} />
               <Route path='create-post' element={<CreatePost categories={categories}/>} />
-              <Route path='edit-post/' element={<CreatePost />} />
+              <Route path='edit-post/:id' element={<EditPost posts={posts} categories={categories} />} />
               
 
           </Route>

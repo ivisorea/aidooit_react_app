@@ -6,12 +6,14 @@ import { useAuth } from '../../context/AuthContext'
 import ShowMoreText from "react-show-more-text";
 import { Img, PostWrapper, DescWrapper, Title, Button, Card, BtnContainer, BtnPost, IconLikes } from './styles';
 import { Parser } from 'html-to-react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { EditPost } from '../EditPost';
 
 export const PostListUserProfile = ({posts}) => {
     const { user } = useAuth();
     const [postsByAuthor, setPostsByAuthor] = useState([])
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         try {
@@ -40,10 +42,11 @@ export const PostListUserProfile = ({posts}) => {
             console.log(error);
         }
     }
-            
-          
+    }
 
-        
+    const editPost = async (id) => {
+        alert(id);
+        navigate(`/edit-post/${id}`);
     }
 
 
@@ -91,7 +94,7 @@ export const PostListUserProfile = ({posts}) => {
                                                 <i class="far fa-trash-alt"></i>
                                             </BtnPost>
                                             
-                                            <BtnPost>
+                                            <BtnPost onClick={() => editPost(post._id)}>
                                                 <i class="far fa-edit"></i>
                                             </BtnPost>
                                             </div>
