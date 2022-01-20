@@ -2,12 +2,9 @@ import styled from "styled-components";
 
 export const FooterCont = styled.div`
    align-items: center;
-    margin: 1rem;
-    display: flex;
-    position:absolute;
-    left:0;
-    bottom:0;
-    right:0;
+    padding: 5rem 5rem 1rem 5rem;
+    width: 100%;
+    text-align: center;
 `;
 
 
@@ -17,6 +14,7 @@ export const SocialMediaIcon = styled.i`
     font-size: 1.5rem;
     margin: 0.5rem;
     cursor: pointer;
+    justify-content: center;
     &:hover {
         color: #fff;
     }
@@ -36,3 +34,14 @@ export const IconLink = styled.a`
     }
 `;
 
+export const CopyRight = styled.p`
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+    color: #f4ba15;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0.5rem;
+    padding:0.5rem;
+    &:hover {
+        color: #fff;
+    }
+`;

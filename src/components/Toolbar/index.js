@@ -7,7 +7,7 @@ import { NavDropdown } from 'react-bootstrap'
 import './styles.css'
 import { useAuth } from '../../context/AuthContext'
 import { Popup } from '../Popup'
-import { Search } from '../Search'
+import { UserInfo } from '../UserInfo'
 
 
 export const Toolbar = () => {
@@ -18,8 +18,8 @@ export const Toolbar = () => {
        
     };
     return (
-        <nav className="navbar navbar-light bg-light fixed-top rounded-bottom">
-                <a className="nav-link" href="/">
+        <nav className="navbar navbar-light bg-light fixed-top rounded-bottom navbar">
+                <a className="nav-link nav-logo" href="/">
                     {/* <Logo/> */}
                     <img 
                     src={aidooit_logo} 
@@ -39,15 +39,24 @@ export const Toolbar = () => {
                             </div>
                             }>
                         <NavDropdown.Item href="#action/3.1">Welcome {user.first_name}</NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="protected">Profile Page</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="protected">
+                        <i class="fas fa-house-user icon"></i>
+                        Profile Page</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item as={Link} to="protected/create-post">Add Post</NavDropdown.Item>
-                        <NavDropdown.Item href="protected/edit-post">Edit Post</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Delete Post</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="protected/create-post">
+                        <i class="far fa-plus-square icon"></i>
+                            Add Post</NavDropdown.Item>
+                        <NavDropdown.Item href="protected/edit-post">
+                        <i class="far fa-edit icon"></i>
+                        Edit Post</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item onClick={() => setShowPopup(!showPopup)}>Settings</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => setShowPopup(!showPopup)}>
+                        <i class="fas fa-cog icon"></i>
+                        Settings</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item onClick={signout} as={Link} to="login">Log Out</NavDropdown.Item>
+                        <NavDropdown.Item onClick={signout} as={Link} to="login">
+                        <i class="fas fa-sign-out-alt icon"></i>
+                        Log Out</NavDropdown.Item>
                     </NavDropdown>
                     
                     
@@ -72,12 +81,9 @@ export const Toolbar = () => {
                 </div>
                 <Popup trigger={showPopup} setTrigger={setShowPopup}>
                         <h4>Settings Profile</h4>
-                        <input type='text' />
-                        <button className = 'btn'
-                            onClick={() => editProfileHandler()}
-                        >
-                            Save Changes
-                        </button>
+                        <hr />
+                        <UserInfo/>
+                        
                 </Popup>
             </nav>
        

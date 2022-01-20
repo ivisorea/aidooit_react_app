@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Spinner } from '../Spinner'
 
-import { ContainerPost, Title, Img, Body, ListItem, MaterialList } from './style'
+import { ContainerPost, Title, Img, Body, ListItem, MaterialList, Author } from './style'
 import { Parser } from 'html-to-react'
 import { AffiliateLink } from '../AffiliateLink'
 
@@ -59,7 +59,11 @@ export const Post = () => {
                                 </ListItem>
                         ))
                     }
+                    <div >
+                    { post.author && <Author>Author: {post.author.first_name} {post.author.last_name}</Author>}
 
+                    </div>
+                    
                 </ContainerPost>
             }
         </>

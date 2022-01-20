@@ -1,9 +1,9 @@
 import React from 'react'
 import ShowMoreText from "react-show-more-text";
-import { Img, PostWrapper, DescWrapper, Title, Button, Card } from './styles';
 import { Parser } from 'html-to-react'
+import { Img, PostWrapper, DescWrapper, Title, Button, Card } from './styles';
 
-export const PostCardUserProfile = ({_id, image, title, body, likes}) => {
+export const PostCardUserProfile = ({_id, image, title, body, likes}, deletePost) => {
     return (
         <Card>
             <a href={`/detail/${_id}`}>
@@ -25,9 +25,15 @@ export const PostCardUserProfile = ({_id, image, title, body, likes}) => {
                             <i class="far fa-heart"></i>
                             {likes} Likes
                         </Button>
+                        <button onClick={deletePost.bind(_id)}>
+                            DELETE
+                        </button>
                     </DescWrapper>
+                    
                 </PostWrapper>
+                
             </a>
+            
         </Card>
     )
 }

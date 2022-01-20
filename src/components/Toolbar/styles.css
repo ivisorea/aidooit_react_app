@@ -1,4 +1,6 @@
-
+.nav-logo {
+    margin-left: 1rem;
+}
 
 .dropdown-toggle:after {
     display: none !important; 
@@ -20,6 +22,12 @@
 
 .navbar-menu {
     padding: 0px !important;
-    margin: 0px !important;
+    margin: 0 2rem 0 0  !important;
+    
 }
 
+.icon {
+    color: #f4ba15;
+    font-size: 1rem;
+    margin-right: 0.4rem;
+}
