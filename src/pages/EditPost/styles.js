@@ -11,7 +11,7 @@ export const FormContainer = styled.div`
 
 
 export const Button = styled.button`
-    background: #f4ba15;
+    background: #FFC233;
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -24,7 +24,7 @@ export const Button = styled.button`
     transition: all 0.3s ease-in-out;
     &:hover {
         background: #684595;
-        color: #f4ba15;
+        color: #FFC233;
     }
 `;
 
@@ -93,6 +93,6 @@ export const DeleteIcon = styled.button`
 export const DeleteInput = styled.i`
     margin: 1rem  0.5rem 0.5rem 0.5rem,
     font-size: 1.2rem, 
-    color: #f4ba15
+    color: #FFC233
     `;
 

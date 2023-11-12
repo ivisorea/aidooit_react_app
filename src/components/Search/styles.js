@@ -12,7 +12,7 @@ export const SearchList = styled.ul`
 export const SearchItem = styled.li`
     padding: 0.2rem;
     &:hover {
-        background-color: #f4ba15;
+        background-color: #FFC233;
         color: #fff;
     }
     a {

@@ -3,7 +3,7 @@
   }
 
   .form-control:focus {
-    /* border-color: #f4ba15 !important; */
+    /* border-color: #FFC233 !important; */
     box-shadow: 0 0 0 0.1rem #68459561 !important;
   }
 

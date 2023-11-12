@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 export const HomePostCard = ({title, image, _id, likes}) => {
+
     return (
         <>
             <Link to={`/detail/${_id}`}>
@@ -17,6 +18,8 @@ export const HomePostCard = ({title, image, _id, likes}) => {
                 </ImgFooter> 
                 
             </Link>
+
+          
         </>
         
     )

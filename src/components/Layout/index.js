@@ -14,8 +14,6 @@ export const Layout = () => {
         <Toolbar/>
         <Outlet/>
         <Footer/>
-        
-        
         </>
     )
 }

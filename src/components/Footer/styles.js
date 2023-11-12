@@ -10,7 +10,7 @@ export const FooterCont = styled.div`
 
 export const SocialMediaIcon = styled.i`
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
-    color: #f4ba15;
+    color: #FFC233;
     font-size: 1.5rem;
     margin: 0.5rem;
     cursor: pointer;
@@ -23,7 +23,7 @@ export const SocialMediaIcon = styled.i`
 
 export const IconLink = styled.a`
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
-    color: #f4ba15;
+    color: #FFC233;
     text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
@@ -36,7 +36,7 @@ export const IconLink = styled.a`
 
 export const CopyRight = styled.p`
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
-    color: #f4ba15;
+    color: #FFC233;
     font-size: 1rem;
     font-weight: bold;
     margin: 0.5rem;

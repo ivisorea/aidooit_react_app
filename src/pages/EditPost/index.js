@@ -11,11 +11,15 @@ import {
   InputProduct, 
   InputUrl 
 } from "./styles";
-import { TextEditor } from "../TextEditor";
+import { TextEditor } from "../../components/TextEditor";
 import './styles.css'
 import { useNavigate} from "react-router-dom";
+import { useCategoryData } from "../../hooks/useCategotyData";
+import { usePostData } from "../../hooks/usePostData";
 
-export const EditPost = ({categories, posts}) => {
+export const EditPost = () => {
+    const { categories } = useCategoryData();
+    const { posts } = usePostData();
     const [imageLocation, setImageLocation] = useState('');
     const [image, setImage] = useState();
     const [postNew, setPostNew] = useState([]);
@@ -154,7 +158,7 @@ export const EditPost = ({categories, posts}) => {
                         defaultValue={''}
                         />
                         <button onClick={() => remove(index)}>
-                        <i class="fas fa-trash-alt" style={{margin: '1rem  0.5rem 0.5rem 0.5rem', fontSize: '1.2rem', color: '#f4ba15'}}></i>
+                        <i class="fas fa-trash-alt" style={{margin: '1rem  0.5rem 0.5rem 0.5rem', fontSize: '1.2rem', color: '#FFC233'}}></i>
                       </button>
                     </ContainerInput>
                       

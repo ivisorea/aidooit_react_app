@@ -1,10 +1,13 @@
 
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import Select from 'react-select';
+import { usePostData } from '../../hooks/usePostData';
 import { SearchItem, SearchList } from './styles';
 import './styles.css';
 
-export const Search = ({posts, categories}) => {
+export const Search = () => {
+    const { posts } = usePostData();
     const [postTitle, setPostTitle] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
 
@@ -17,9 +20,15 @@ export const Search = ({posts, categories}) => {
         setSuggestions(matches);
         setPostTitle(postTitle);
     }
-
+    const options = [
+        { value: '1', label: 'Apple'},
+        { value: '2', label: 'Ball'},
+       { value: '3', label: 'Cat'},
+      ]
+  
     return (
         <>
+        
           <div class="col-md-8 col-lg-6 col-xl-5 mx-auto p-5 mt-5">
                 <div class=" pt-4" >
                     <input style={{ height: '45px', fontSize: '1.3rem', fontStyle: 'italic'}}
@@ -40,6 +49,7 @@ export const Search = ({posts, categories}) => {
                             ))}
                         </SearchList>
                     }
+                    <Select options={options}/>
                 </div>
             </div>
         </>

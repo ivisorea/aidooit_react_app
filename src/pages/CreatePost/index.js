@@ -11,17 +11,18 @@ import {
   InputProduct, 
   InputUrl 
 } from "./styles";
-import { TextEditor } from "../TextEditor";
+import { TextEditor } from "../../components/TextEditor";
 import './styles.css'
 import { useNavigate} from "react-router-dom";
+import { useCategoryData } from "../../hooks/useCategotyData";
 
-export const CreatePost = ({categories}) => {
+export const CreatePost = () => {
+    const { categories } = useCategoryData()
     const [imageLocation, setImageLocation] = useState('');
     const [image, setImage] = useState();
-    const [postNew, setPostNew] = useState([]);
     const navigate = useNavigate();
     const showImage = ('https://app-aidooit-cloud.s3.eu-central-1.amazonaws.com/file-1642347424258-287115022.png')
-
+    
     useEffect(() => {
       try {
         const getImageLocation = async () => {
@@ -44,7 +45,6 @@ export const CreatePost = ({categories}) => {
           const { data: newPost } = await axios.post("https://aidooit-app.herokuapp.com/post", data, {
             headers: { Authorization: localStorage.getItem('token') }
           });
-          setPostNew(newPost);
           navigate('/detail/' + newPost._id);
           reset();
           } catch (error) {
@@ -78,6 +78,7 @@ export const CreatePost = ({categories}) => {
 
     setValue('image', imageLocation)
    return (
+        <>
         <EditorForm onSubmit={handleSubmit(onSubmit)}>
           <FormContainer>
             <div class="row">
@@ -154,7 +155,7 @@ export const CreatePost = ({categories}) => {
                         defaultValue={''}
                         />
                         <button onClick={() => remove(index)}>
-                        <i class="fas fa-trash-alt" style={{margin: '1rem  0.5rem 0.5rem 0.5rem', fontSize: '1.2rem', color: '#f4ba15'}}></i>
+                        <i class="fas fa-trash-alt" style={{margin: '1rem  0.5rem 0.5rem 0.5rem', fontSize: '1.2rem', color: '#FFC233'}}></i>
                       </button>
                     </ContainerInput>
                       
@@ -182,6 +183,7 @@ export const CreatePost = ({categories}) => {
                 </HiddenLabel>
           </FormContainer>
         </EditorForm>
+        </>
     );
 };
 

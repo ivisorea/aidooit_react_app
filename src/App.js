@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { GlobalStyles } from './GlobalStyles';
 import { Layout } from './components/Layout';
 import { NotFound } from './components/NotFound';
@@ -9,62 +7,18 @@ import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AuthState from "./context/AuthContext";
 import {ToastContainer} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-
-import './App.css';
-import Home from './components/Home';
+import Home from './pages/Home';
 import { UserProfile } from './components/UserProfile';
-import { CreatePost } from './components/CreatePost';
+import { CreatePost } from './pages/CreatePost';
 import { HomeListPostByCateg } from './components/HomeListPostByCateg';
 import { Post } from './components/Post';
-import { EditPost } from './components/EditPost';
-
-//Custom Hook to get Category Data
-function useCategoryData() {
-  const [categories, setCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const getCategories = async () => {
-      const response = await axios.get('https://aidooit-app.herokuapp.com/categories');
-      setCategories(response.data);
-      console.log(response.data);
-      setIsLoading(false);
-    };
-    getCategories();
-  }, []);
-    return {categories, isLoading};
-}
-
-//Custom Hook to get Post Data
-function usePostData() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const response = await axios.get('https://aidooit-app.herokuapp.com/post');
-        console.log(response.data);
-        setPosts(response.data);
-      }
-      catch (error) {
-        console.log(error);
-      }
-    };
-    getPosts();
-  }, []);
-     
-  return { posts };
-}
-
+import { EditPost } from './pages/EditPost';
+import 'react-toastify/dist/ReactToastify.css'
+import './App.css';
 
 
 function App() {
-  const { posts } = usePostData();
-  const { categories, isLoading} = useCategoryData();
-
-
+  
   return (
     <>
       <GlobalStyles/>
@@ -72,23 +26,16 @@ function App() {
       <AuthState>
         <Routes>
           <Route path="/" element={<Layout />}>
-              <Route index element={<Home 
-                          categories={categories} 
-                          posts={posts}
-                          isLoading={isLoading}
-                          />} 
-                          />
-              <Route path='/category/:CategoryId' element={<HomeListPostByCateg />} />
-              <Route path='/detail/:PostId' element={<Post />} />   
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
-          <Route path="protected" element={<ProtectedRoute />}>
+            <Route index element={<Home/>} />
+            <Route path='/category/:CategoryId' element={<HomeListPostByCateg />} />
+            <Route path='/detail/:PostId' element={<Post />} />   
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="protected" element={<ProtectedRoute />}>
               <Route index element={<UserProfile/>} />
-              <Route path='create-post' element={<CreatePost categories={categories}/>} />
-              <Route path='edit-post/:id' element={<EditPost posts={posts} categories={categories} />} />
-              
-
-          </Route>
+              <Route path='create-post' element={<CreatePost />} />
+              <Route path='edit-post/:id' element={<EditPost />} />
+            </Route>
           <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

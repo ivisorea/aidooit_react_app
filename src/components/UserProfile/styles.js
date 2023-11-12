@@ -8,7 +8,7 @@ export const UserSummaryWrapper = styled.div`
 
 export const UserPhoto = styled.div`
     background: #684595,
-    border: 5px solid #f4ba15;
+    border: 5px solid #FFC233;
     border-radius: 50%;
     width: 10rem;
     height: 10rem;
@@ -18,13 +18,13 @@ export const UserPhoto = styled.div`
     position: relative;
     overflow: hidden;
     &:hover {
-        background: #f4ba15;
+        background: #FFC233;
         color: #684595;
     }
 `;
 
 export const UserPhotoImg = styled.img`
-    border: 5px solid #f4ba15;
+    border: 5px solid #FFC233;
     border-radius: 50%;
     width: 10rem;
     height: 10rem;
@@ -39,7 +39,7 @@ export const UserPhotoImg = styled.img`
     `;
 
 export const UserPhotoIcon = styled.i`
-    color: #f4ba15;
+    color: #FFC233;
     ${'' /* aligncenter: center;
     font-size: 1.5rem;
     position: absolute;

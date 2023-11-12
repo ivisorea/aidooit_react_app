@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-    background: #f4ba15;
+    background: #FFC233;
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -14,7 +14,7 @@ export const Button = styled.button`
     transition: all 0.3s ease-in-out;
     &:hover {
         background: #684595;
-        color: #f4ba15;
+        color: #FFC233;
     }
 `;
 
@@ -24,6 +24,6 @@ export const TextBtn = styled.p`
     `;
 
 export const MenuIcon = styled.i`
-    color: #f4ba15;
+    color: #FFC233;
     font-size: 1.5rem;
     `;

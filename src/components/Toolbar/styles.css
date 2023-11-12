@@ -9,12 +9,12 @@
 .menu-icon {
     color: #fff;
     font-size: 1.5rem;
-    background-color: #f4ba15; 
+    background-color: #FFC233; 
     font-weight: bold;
     padding-top: 2px;
 }
 .icon-container {
-    background: #f4ba15 ;
+    background: #FFC233 ;
     color: #8f54dc; 
     border-radius: 50%;
     padding: 8px 12px;
@@ -27,7 +27,7 @@
 }
 
 .icon {
-    color: #f4ba15;
+    color: #FFC233;
     font-size: 1rem;
     margin-right: 0.4rem;
 }

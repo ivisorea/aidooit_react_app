@@ -7,7 +7,7 @@ import ShowMoreText from "react-show-more-text";
 import { Img, PostWrapper, DescWrapper, Title, Button, Card, BtnContainer, BtnPost, IconLikes } from './styles';
 import { Parser } from 'html-to-react'
 import { Link, useNavigate } from 'react-router-dom';
-import { EditPost } from '../EditPost';
+import { EditPost } from '../../pages/EditPost';
 
 export const PostListUserProfile = ({posts}) => {
     const { user } = useAuth();
@@ -33,7 +33,7 @@ export const PostListUserProfile = ({posts}) => {
     const deletePost = async (id) => {
         if (window.confirm('Are you sure you want to delete this post?')) {
         try {
-             await axios.delete(`http://localhost:4000/post/${id}`, {
+             await axios.delete(`http://aidooit-app.herokuapp.com/post/${id}`, {
                 headers: { Authorization: localStorage.getItem('token') }
             });
             setPostsByAuthor(postsByAuthor.filter(post => post._id !== id));
@@ -43,6 +43,9 @@ export const PostListUserProfile = ({posts}) => {
         }
     }
     }
+
+
+
 
     const editPost = async (id) => {
         alert(id);

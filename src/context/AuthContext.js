@@ -3,9 +3,8 @@ import axios from 'axios'
 import {toast} from 'react-toastify'
 
 const AuthContext = createContext();
+
 export const useAuth = () => useContext(AuthContext);
-
-
 
 const AuthState = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
